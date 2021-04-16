@@ -1,0 +1,98 @@
+Tactic,Technique,"Sub_Technique","technique_count",IsSubTechnique,"Sub_Technique_List","sub_technique_count"
+Collection,"Data Staged","Local Data Staging",8,Yes,"Local Data Staging
+Remote Data Staging",8
+"Defense Evasion","Abuse Elevation Control Mechanism","Bypass User Access Control",32,Yes,"Setuid and Setgid
+Bypass User Access Control
+Sudo and Sudo Caching
+Elevated Execution with Prompt",32
+"Defense Evasion","Indicator Removal on Host","Clear Windows Event Logs",8,Yes,"Clear Windows Event Logs
+Clear Linux or Mac System Logs
+Clear Command History
+File Deletion
+Network Share Connection Removal
+Timestomp",8
+"Defense Evasion",Masquerading,"-",6,No,"Invalid Code Signature
+Right-to-Left Override
+Rename System Utilities
+Masquerade Task or Service
+Match Legitimate Name or Location
+Space after Filename",
+"Defense Evasion","Signed Binary Proxy Execution",Mshta,4,Yes,"Compiled HTML File
+Control Panel
+CMSTP
+InstallUtil
+Mshta
+Msiexec
+Odbcconf
+Regsvcs/Regasm
+Regsvr32
+Rundll32",4
+"Defense Evasion","Signed Binary Proxy Execution",Regsvr32,2,Yes,"Compiled HTML File
+Control Panel
+CMSTP
+InstallUtil
+Mshta
+Msiexec
+Odbcconf
+Regsvcs/Regasm
+Regsvr32
+Rundll32",2
+"Defense Evasion","Trusted Developer Utilities Proxy Execution",MSBuild,2,Yes,MSBuild,2
+Discovery,"Permission Groups Discovery","-",2,No,"Local Groups
+Domain Groups
+Cloud Groups",
+Discovery,"Process Discovery","-",4,No,,
+Discovery,"System Information Discovery","-",8,No,,
+Discovery,"System Network Configuration Discovery","-",6,No,,
+Discovery,"System Network Connections Discovery","-",4,No,,
+Discovery,"System Owner/User Discovery","-",4,No,,
+Execution,"Command and Scripting Interpreter",PowerShell,62,Yes,"PowerShell
+AppleScript
+Windows Command Shell
+Unix Shell
+Visual Basic
+Python
+JavaScript/JScript",62
+Exfiltration,"Data Transfer Size Limits","-",234,No,,
+Impact,"Inhibit System Recovery","-",4,No,,
+"Lateral Movement","Remote Services","-",270,No,"Remote Desktop Protocol
+SMB/Windows Admin Shares
+Distributed Component Object Model
+SSH
+VNC
+Windows Remote Management",
+"Lateral Movement","Remote Services","Remote Desktop Protocol",4,Yes,"Remote Desktop Protocol
+SMB/Windows Admin Shares
+Distributed Component Object Model
+SSH
+VNC
+Windows Remote Management",4
+Persistence,"Boot or Logon Autostart Execution","Registry Run Keys / Startup Folder",4,Yes,"Registry Run Keys / Startup Folder
+Authentication Package
+Time Providers
+Winlogon Helper DLL
+Security Support Provider
+Kernel Modules and Extensions
+Re-opened Applications
+LSASS Driver
+Shortcut Modification
+Port Monitors
+Plist Modification",4
+Persistence,"Create Account","-",4,No,"Local Account
+Domain Account
+Cloud Account",
+"Privilege Escalation","Abuse Elevation Control Mechanism","Bypass User Access Control",32,Yes,"Setuid and Setgid
+Bypass User Access Control
+Sudo and Sudo Caching
+Elevated Execution with Prompt",32
+"Privilege Escalation","Boot or Logon Autostart Execution","Registry Run Keys / Startup Folder",4,Yes,"Registry Run Keys / Startup Folder
+Authentication Package
+Time Providers
+Winlogon Helper DLL
+Security Support Provider
+Kernel Modules and Extensions
+Re-opened Applications
+LSASS Driver
+Shortcut Modification
+Port Monitors
+Plist Modification",4

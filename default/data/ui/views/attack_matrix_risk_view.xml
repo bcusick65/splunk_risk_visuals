@@ -1,0 +1,362 @@
+<form script="mitre_matrix.js" stylesheet="mitre_matrix.css" theme="light">
+  <label>ATT&amp;CK Matrix Risk View</label>
+  <description>This dashboard portrays risk in your environment through the lens of RBA and the MITRE ATT&amp;CK framework</description>
+  <search id="mitre_base_1">
+    <query>
+      | tstats values(All_Risk.annotations.mitre_attack.mitre_tactic) as mitre_tactic, values(All_Risk.annotations.mitre_attack.mitre_technique) as mitre_technique values(All_Risk.savedsearch_description) as search_name values(All_Risk.risk_object_type) as risk_object_type values(All_Risk.impact) as impact from datamodel=Risk by _time, All_Risk.risk_object
+| `drop_dm_object_name("All_Risk")`
+    </query>
+    <earliest>$field1.earliest$</earliest>
+    <latest>$field1.latest$</latest>
+  </search>
+  <search id="preload_mitremap">
+    <query>
+      ```Preload MITRE matrix once per page```
+      |mitremap | outputlookup attack_matrix.csv
+    </query>
+  </search>
+  <search id="populate_list_of_available_searches">
+    <query>
+      | sseanalytics 
+| fields name, mitre_id, enabled, 
+| search mitre_id!="None"
+| outputlookup available_searches
+    </query>
+    <earliest>$field1.earliest$</earliest>
+    <latest>$field1.latest$</latest>
+  </search>
+  <search id="populate_mitre_risk_attribution_counts">
+    <query>
+      ```Populate risk attributions for each [sub]technique from the risk index. Load lookup at dashboard-load time, dependent on timerange picker```
+      index=risk annotations.mitre_attack.mitre_technique_id=*
+| table search_name risk_object risk_object_type annotations.mitre_attack.mitre_tactic annotations.mitre_attack.mitre_technique annotations.mitre_attack.mitre_technique_id
+| lookup mitre_matrix_list.csv TechniqueIdCombined AS annotations.mitre_attack.mitre_technique_id OUTPUT Technique, Sub_Technique, Tactic
+| table Tactic Technique Sub_Technique
+| stats count as technique_count by Tactic Technique Sub_Technique
+| eval IsSubTechnique=if(Sub_Technique!="-","Yes","No")
+| lookup mitre_matrix_list Tactic Technique OUTPUT Sub_Technique AS Sub_Technique_List
+| eval Sub_Technique_List=mvfilter(Sub_Technique_List!="-")
+| eval sub_technique_count=case(Sub_Technique!="-",technique_count)
+| outputlookup attack_environment_counts
+    </query>
+    <earliest>$field1.earliest$</earliest>
+    <latest>$field1.latest$</latest>
+    <done>
+      <unset token="reset_token"></unset>
+      <set token="reset_token">reset_token_value</set>
+    </done>
+  </search>
+  <search id="populate_mitre_matrix_counts_from_rr_rules">
+    <query>
+      | inputlookup available_searches 
+| lookup mitre_matrix_list.csv TechniqueIdCombined AS mitre_id OUTPUT Technique, Sub_Technique, Tactic 
+| table Tactic Technique Sub_Technique 
+| stats count as technique_count by Tactic Technique Sub_Technique 
+| eval IsSubTechnique=if(Sub_Technique!="-","Yes","No") 
+| lookup mitre_matrix_list Tactic Technique OUTPUT Sub_Technique AS Sub_Technique_List 
+| eval Sub_Technique_List=mvfilter(Sub_Technique_List!="-") 
+| eval sub_technique_count=case(Sub_Technique!="-",technique_count)
+| outputlookup rr_rule_environment_counts.csv
+    </query>
+    <earliest>$field1.earliest$</earliest>
+    <latest>$field1.latest$</latest>
+  </search>
+  <search id="populate_risk_object_attack_env_counts_lookup">
+    <query>
+      | tstats `summariesonly` count from datamodel=Risk by All_Risk.annotations.mitre_attack.mitre_tactic, All_Risk.annotations.mitre_attack.mitre_technique, All_Risk.annotations.mitre_attack.mitre_technique_id, All_Risk.risk_object 
+| rename All_Risk.* as * 
+| lookup mitre_matrix_list TechniqueIdCombined as annotations.mitre_attack.mitre_technique_id OUTPUT Tactic, Technique Sub_Technique TechniqueIdCombined 
+| stats count as risk_object_count by Tactic Technique Sub_Technique risk_object TechniqueIdCombined 
+| eval risk_object=risk_object."::".risk_object_count 
+| mvcombine delim="," risk_object 
+| nomv risk_object 
+| eval IsSubTechnique=if(Sub_Technique!="-","Yes","No") 
+| lookup mitre_matrix_list local=true Tactic Technique OUTPUT Sub_Technique AS Sub_Technique_List 
+| eval Sub_Technique_List=mvfilter(Sub_Technique_List!="-") 
+```| eval sub_technique_count=case(Sub_Technique!="-",risk_object_count)```
+| eval sub_technique_count=risk_object_count
+| outputlookup risk_object_attack_environment_counts.csv
+    </query>
+    <earliest>$field1.earliest$</earliest>
+    <latest>$field1.latest$</latest>
+  </search>
+  <fieldset submitButton="false">
+    <input type="time" token="field1">
+      <label></label>
+      <default>
+        <earliest>-24h@h</earliest>
+        <latest>now</latest>
+      </default>
+    </input>
+    <input type="radio" token="attack_vis">
+      <label>ATT&amp;CK Visibility</label>
+      <choice value="triggered">Triggered</choice>
+      <choice value="covered">Covered</choice>
+      <default>triggered</default>
+      <change>
+        <condition value="triggered">
+          <set token="which_search">Triggered</set>
+          <set token="matrix_choice">attack_environment_counts.csv</set>
+          <set token="matrix_color">"#f81900"</set>
+          <set token="new_search">index=risk 
+| fields search_name risk_object risk_object_type annotations.mitre_attack.mitre_tactic annotations.mitre_attack.mitre_technique annotations.mitre_attack.mitre_technique_id 
+| lookup mitre_attack_lookup mitre_technique_id as annotations.mitre_attack.mitre_technique_id OUTPUT mitre_tactic mitre_technique_id 
+| stats dc(mitre_technique_id) as techniques_used by mitre_tactic 
+| append 
+    [|inputlookup mitre_attack_lookup
+| stats dc(mitre_technique_id) as total_techniques by mitre_tactic ] 
+| stats values(techniques_used) as techniques_used, values(total_techniques) as total_techniques by mitre_tactic 
+| fillnull value="0" techniques_used 
+| eval combo = techniques_used." of ".total_techniques 
+| transpose 0 header_field=mitre_tactic 
+| search column=combo 
+| eval reset_token="$reset_token$" 
+| table initial-access execution persistence privilege-escalation defense-evasion credential-access discovery lateral-movement collection command-and-control exfiltration impact 
+| rename initial-access as "Initial Access", execution as Execution, persistence as Persistence, privilege-escalation as "Privilege Escalation", defense-evasion as "Defense Evasion", credential-access as "Credential Access", discovery as Discovery, lateral-movement as "Lateral Movement", collection as Collection, command-and-control as "Command and Control", exfiltration as Exfiltration, impact as Impact</set>
+        </condition>
+        <condition value="covered">
+          <set token="which_search">Covered</set>
+          <set token="matrix_choice">rr_rule_environment_counts.csv</set>
+          <set token="matrix_color">"#3CB371"</set>
+          <set token="new_search">| inputlookup rr_rule_environment_counts.csv
+| stats dc(Technique) as techniques_covered by Tactic
+| rename Tactic as mitre_tactic
+| append
+    [| inputlookup temp_tactic_technique_count.csv ]
+| replace collection with Collection, command-and-control with "Command and Control", credential-access with "Credential Access", defense-evasion with "Defense Evasion", discovery with Discovery, execution with Execution, exfiltration with Exfiltration, impact with Impact, initial-access with "Initial Access", lateral-movement with "Lateral Movement", persistence with Persistence, privilege-escalation with "Privilege Escalation" in mitre_tactic
+| stats values(techniques_covered) as techniques_covered, values(total_techniques) as total_techniques by mitre_tactic
+| fillnull value="0" techniques_covered
+| eval combo = techniques_covered." of ".total_techniques
+| transpose 0 header_field=mitre_tactic
+| search column=combo
+| eval reset_token="$reset_token$"
+| table "Initial Access" Execution Persistence "Privilege Escalation" "Defense Evasion" "Credential Access" Discovery "Lateral Movement" Collection "Command and Control" Exfiltration Impact</set>
+        </condition>
+      </change>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <single>
+        <title>RBA-Afforded Decrease in Notable Count (from legacy notables)</title>
+        <search>
+          <query>| multisearch
+    [| search index=notable NOT search_name="Risk*"
+    | eval old_notables="1"]
+    [ search index=notable search_name="Risk*"
+    | eval new_rba_notables="1"]
+| stats count(old_notables) as old_notables, count(new_rba_notables) as new_rba_notables
+| eval difference=round(100-((new_rba_notables/old_notables)*100),2)
+| fields difference</query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+        </search>
+        <option name="colorMode">block</option>
+        <option name="drilldown">none</option>
+        <option name="numberPrecision">0.00</option>
+        <option name="rangeColors">["0xdc4e41","0xf1813f","0xf8be34","0x53a051","0xdc4e41"]</option>
+        <option name="rangeValues">[30,50,80,100]</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="unit">%</option>
+        <option name="useColors">1</option>
+      </single>
+    </panel>
+    <panel>
+      <chart>
+        <title>Aggregated Risk Alerts vs. Risk Attribution (legacy notables)</title>
+        <search>
+          <query>| multisearch
+    [| search index=notable NOT search_name="Risk*"
+    | eval old_notables="1"]
+    [ search index=notable search_name="Risk*"
+    | eval new_rba_notables="1"]
+| eval new_or_old=case(old_notables="1","Risk Contributions",new_rba_notables="1","Actionable Risk")
+| timechart span=1h count by new_or_old</query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+        </search>
+        <option name="charting.chart">column</option>
+        <option name="charting.chart.stackMode">stacked</option>
+        <option name="charting.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Risk Attributions - Recognized Tactics/Techniques</title>
+      <single>
+        <search>
+          <query>| tstats count from datamodel=Risk</query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+        </search>
+        <option name="colorMode">block</option>
+        <option name="drilldown">none</option>
+        <option name="rangeColors">["0x53a051","0xf8be34","0xdc4e41"]</option>
+        <option name="rangeValues">[50,200]</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="trellis.enabled">0</option>
+        <option name="trellis.scales.shared">1</option>
+        <option name="trellis.size">medium</option>
+        <option name="unit">Attributions</option>
+        <option name="useColors">1</option>
+      </single>
+    </panel>
+    <panel>
+      <title>Actionable Risk Notables</title>
+      <single>
+        <search>
+          <query>`notable`
+| search search_name=Risk*
+| stats count</query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+        </search>
+        <option name="colorMode">block</option>
+        <option name="drilldown">none</option>
+        <option name="rangeColors">["0x53a051","0xf1813f","0xdc4e41"]</option>
+        <option name="rangeValues">[500,1000]</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="unit">Risk Notables</option>
+        <option name="useColors">1</option>
+      </single>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <table>
+        <title>Techniques $which_search$ in Our Environment</title>
+        <search>
+          <query>$new_search$</query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+        </search>
+        <option name="drilldown">none</option>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Risk Attribution $which_search$ in your Environment</title>
+      <table id="mitremaptable">
+        <search>
+          <query>| inputlookup attack_matrix.csv
+| foreach *
+    [| rex field="&lt;&lt;FIELD&gt;&gt;" "(?&lt;technique_temp&gt;.*) \("
+    | eval Technique_nogroups=coalesce(technique_temp,'&lt;&lt;FIELD&gt;&gt;')
+    | eval "&lt;&lt;FIELD&gt;&gt; Tactic" = "&lt;&lt;FIELD&gt;&gt;"
+    | eval "Sub_Technique"="-"
+    | lookup $matrix_choice$ Sub_Technique Technique AS Technique_nogroups, "Tactic" AS "&lt;&lt;FIELD&gt;&gt; Tactic" OUTPUT technique_count
+    | eval "Technique"=mvindex(split('&lt;&lt;FIELD&gt;&gt;', " ("),0)
+    | lookup mitre_matrix_list Tactic AS "&lt;&lt;FIELD&gt;&gt; Tactic" Technique OUTPUT TechniqueId AS "&lt;&lt;FIELD&gt;&gt;"_TechniqueId
+    | fields - Technique_nogroups technique_temp
+    | eval count = coalesce(count, 1), temp = "t" + count, {temp}='&lt;&lt;FIELD&gt;&gt;', color=$matrix_color$, colorby="Total"
+    | eval text='&lt;&lt;FIELD&gt;&gt;'
+    | eval p0_count=coalesce(technique_count,0)
+    | eval total_count=p0_count
+    | eval opacity=tostring(total_count/5)
+    | eval tooltip="Events: ".total_count."&lt;br /&gt;"
+    | eval IsSubTechnique="Yes"
+    | lookup attack_environment_counts.csv Tactic AS "&lt;&lt;FIELD&gt;&gt; Tactic" Technique IsSubTechnique OUTPUT "Sub_Technique" sub_technique_count
+    | lookup mitre_matrix_list Tactic AS "&lt;&lt;FIELD&gt;&gt; Tactic" Technique Sub_Technique OUTPUT Sub_TechniqueId
+    | eval Opacity_SubTechnique=mvmap(sub_technique_count,sub_technique_count/5)
+    | eval Color_SubTechnique=mvmap(sub_technique_count,'color')
+        | eval Events_SubTechniqueJson=mvmap(sub_technique_count,"\"Events\": ".sub_technique_count),Color_SubTechniqueJson=mvmap('Color_SubTechnique',"\"Color\": \"".'Color_SubTechnique'."\""),Opacity_SubTechniqueJson=mvmap('Opacity_SubTechnique',"\"Opacity\": ".'Opacity_SubTechnique'),Id_SubTechniqueJson=mvmap('Sub_TechniqueId',"\"Sub_TechniqueId\": \"".'Sub_TechniqueId'."\"")
+    | eval SubTechniqueValuesMerge=mvzip(Events_SubTechniqueJson,mvzip(Color_SubTechniqueJson,mvzip(Opacity_SubTechniqueJson,Id_SubTechniqueJson)))
+    | eval Sub_Technique=coalesce(",\"Sub_Techniques\": {".mvjoin(mvzip(mvmap('Sub_Technique',"\"".'Sub_Technique'."\""),mvmap(SubTechniqueValuesMerge, "{".SubTechniqueValuesMerge."}"),": "),",")."}","")
+    | fields - *_SubTechniqueJson sub_technique_count IsSubTechnique SubTechniqueValuesMerge *_SubTechnique
+
+
+    | eval "&lt;&lt;FIELD&gt;&gt;_TechniqueId"=mvdedup('&lt;&lt;FIELD&gt;&gt;_TechniqueId')
+    | eval "&lt;&lt;FIELD&gt;&gt;" = if(text!="",mvappend("TechniqueId: ".'&lt;&lt;FIELD&gt;&gt;_TechniqueId',"Technique: ".Technique,"Color: ".color,"Opacity: ".opacity,"Events: ".p0_count),null)
+    | eval "&lt;&lt;FIELD&gt;&gt;"="{".mvjoin(mvmap('&lt;&lt;FIELD&gt;&gt;',"\"".mvindex(split('&lt;&lt;FIELD&gt;&gt;',": "),0)."\": \"".mvindex(split('&lt;&lt;FIELD&gt;&gt;',": "),1)."\""),",").Sub_Technique."}"
+
+    | eval count = count + 1 ]
+| eval reset_token="$reset_token$"
+| fields - temp count Active Available "Needs data" tooltip *Tactic color colorby opacity p0* p1* p2* t1 t2 t3 t4 t5 t6 t7 t8 t9 t10 t11 t12 t13 t14 t15 t16 t17 t18 text total_count "Data Source" Data_Source_Count Selected p3_count technique_count reset_token
+| table "Initial Access" Execution Persistence "Privilege Escalation" "Defense Evasion" "Credential Access" Discovery "Lateral Movement" Collection "Command and Control" Exfiltration Impact</query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="count">20</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">none</option>
+        <option name="percentagesRow">false</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="rowNumbers">false</option>
+        <option name="totalsRow">false</option>
+        <option name="wrap">true</option>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Risk Object Attribution</title>
+      <input type="text" token="risk_object_tok" searchWhenChanged="true">
+        <label>Enter Risk Object Name</label>
+        <default>fyodor</default>
+        <initialValue>fyodor</initialValue>
+      </input>
+      <table id="mitremaptable2">
+        <search>
+          <query>| inputlookup attack_matrix.csv 
+| foreach * 
+    [| rex field="&lt;&lt;FIELD&gt;&gt;" "(?&lt;technique_temp&gt;.*) \(" 
+    | eval Technique_nogroups=coalesce(technique_temp,'&lt;&lt;FIELD&gt;&gt;') 
+    | eval "&lt;&lt;FIELD&gt;&gt; Tactic" = "&lt;&lt;FIELD&gt;&gt;" 
+    | eval "Sub_Technique"="-"
+    | lookup risk_object_attack_environment_counts.csv Sub_Technique, Technique AS Technique_nogroups, "Tactic" AS "&lt;&lt;FIELD&gt;&gt; Tactic" OUTPUT risk_object 
+    | eval "Technique"=mvindex(split('&lt;&lt;FIELD&gt;&gt;', " ("),0) 
+    
+    | lookup mitre_matrix_list Tactic AS "&lt;&lt;FIELD&gt;&gt; Tactic" Technique OUTPUT TechniqueId AS "&lt;&lt;FIELD&gt;&gt;"_TechniqueId
+    
+    | eval risk_object=split('risk_object',",") 
+    | eval "risk_object"=mvfilter(match('risk_object',"$risk_object_tok$")) 
+    | rex field="risk_object" "(?&lt;risk_object&gt;[^:]*)::(?&lt;risk_object_count&gt;.*)"
+
+    | eval Selected=if(in('risk_object',"$risk_object_tok$") , risk_object_count,0) 
+    | eval Selected=tonumber(coalesce(mvindex(Selected,0,0),0))+tonumber(coalesce(mvindex(Selected,1,1),0))+tonumber(coalesce(mvindex(Selected,2,2),0))+tonumber(coalesce(mvindex(Selected,3,3),0))+tonumber(coalesce(mvindex(Selected,4,4),0))+tonumber(coalesce(mvindex(Selected,5,5),0))+tonumber(coalesce(mvindex(Selected,6,6),0)) 
+    | fields - Technique_nogroups technique_temp 
+    | eval count = coalesce(count, 1), temp = "t" + count, {temp}='&lt;&lt;FIELD&gt;&gt;', color="#9A32CD", colorby="Selected" 
+    | eval text='&lt;&lt;FIELD&gt;&gt;' 
+    | eval p0_count=coalesce(risk_object_count,0) 
+    | eval total_count=p0_count
+    | eval opacity=tostring(total_count/5) 
+    | eval tooltip="Events: ".total_count."&lt;br /&gt;" 
+    | eval IsSubTechnique="Yes"
+    | lookup risk_object_attack_envrionment_counts Tactic AS "&lt;&lt;FIELD&gt;&gt; Tactic" Technique IsSubTechnique OUTPUT "Sub_Technique" sub_technique_count
+    | lookup mitre_matrix_list Tactic AS "&lt;&lt;FIELD&gt;&gt; Tactic" Technique Sub_Technique OUTPUT Sub_TechniqueId
+    | eval Opacity_SubTechnique=mvmap(sub_technique_count,sub_technique_count/5)
+    | eval Color_SubTechnique=mvmap(sub_technique_count,'color')
+        | eval Events_SubTechniqueJson=mvmap(sub_technique_count,"\"Events\": ".sub_technique_count),Color_SubTechniqueJson=mvmap('Color_SubTechnique',"\"Color\": \"".'Color_SubTechnique'."\""),Opacity_SubTechniqueJson=mvmap('Opacity_SubTechnique',"\"Opacity\": ".'Opacity_SubTechnique'),Id_SubTechniqueJson=mvmap('Sub_TechniqueId',"\"Sub_TechniqueId\": \"".'Sub_TechniqueId'."\"")
+    | eval SubTechniqueValuesMerge=mvzip(Events_SubTechniqueJson,mvzip(Color_SubTechniqueJson,mvzip(Opacity_SubTechniqueJson,Id_SubTechniqueJson)))
+    | eval Sub_Technique=coalesce(",\"Sub_Techniques\": {".mvjoin(mvzip(mvmap('Sub_Technique',"\"".'Sub_Technique'."\""),mvmap(SubTechniqueValuesMerge, "{".SubTechniqueValuesMerge."}"),": "),",")."}","")
+    | fields - *_SubTechniqueJson sub_technique_count IsSubTechnique SubTechniqueValuesMerge *_SubTechnique
+
+
+    | eval "&lt;&lt;FIELD&gt;&gt;_TechniqueId"=mvdedup('&lt;&lt;FIELD&gt;&gt;_TechniqueId')
+    | eval "&lt;&lt;FIELD&gt;&gt;" = if(text!="",mvappend("TechniqueId: ".'&lt;&lt;FIELD&gt;&gt;_TechniqueId',"Technique: ".Technique,"Color: ".color,"Opacity: ".opacity,"Events: ".p0_count),null)
+    | eval "&lt;&lt;FIELD&gt;&gt;"="{".mvjoin(mvmap('&lt;&lt;FIELD&gt;&gt;',"\"".mvindex(split('&lt;&lt;FIELD&gt;&gt;',": "),0)."\": \"".mvindex(split('&lt;&lt;FIELD&gt;&gt;',": "),1)."\""),",").Sub_Technique."}"
+
+    | eval count = count + 1 ]
+| eval reset_token="reset_token_value"
+| fields - temp count Active Available "Needs data" tooltip *Tactic color colorby opacity p0* p1* p2* t1 t2 t3 t4 t5 t6 t7 t8 t9 t10 t11 t12 t13 t14 t15 t16 t17 t18 text total_count "Data Source" Data_Source_Count Selected p3_count technique_count reset_token
+| table "Initial Access" Execution Persistence "Privilege Escalation" "Defense Evasion" "Credential Access" Discovery "Lateral Movement" Collection "Command and Control" Exfiltration Impact</query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="count">20</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">none</option>
+        <option name="percentagesRow">false</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="rowNumbers">false</option>
+        <option name="totalsRow">false</option>
+        <option name="wrap">true</option>
+      </table>
+    </panel>
+  </row>
+</form>

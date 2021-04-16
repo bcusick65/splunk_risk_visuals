@@ -1,0 +1,98 @@
+Tactic,Technique,"Sub_Technique","risk_object",TechniqueIdCombined,"risk_object_count",IsSubTechnique,"Sub_Technique_List","sub_technique_count"
+"Defense Evasion",Masquerading,"-","bstoll-l::1,frothlyuser::1,system::1",T1036,1,No,"Invalid Code Signature
+Right-to-Left Override
+Rename System Utilities
+Masquerade Task or Service
+Match Legitimate Name or Location
+Space after Filename",1
+Discovery,"Permission Groups Discovery","-","bstoll-l::1,frothlyuser::1",T1069,1,No,"Local Groups
+Domain Groups
+Cloud Groups",1
+Discovery,"Process Discovery","-","bstoll-l::1,frothlyuser::1",T1057,1,No,,1
+Discovery,"System Information Discovery","-","bstoll::1,bstoll-l::1,frothlyuser::1,gravity::1",T1082,1,No,,1
+Discovery,"System Network Configuration Discovery","-","bstoll::1,bstoll-l::1,frothlyuser::1,gravity::1,system::1",T1016,1,No,,1
+Discovery,"System Network Connections Discovery","-","bstoll-l::1,frothlyuser::1,system::1",T1049,1,No,,1
+Discovery,"System Owner/User Discovery","-","bstoll::1,bstoll-l::1,frothlyuser::1,gravity::1",T1033,1,No,,1
+Exfiltration,"Data Transfer Size Limits","-","10.0.1.4::1,13.125.33.130::1,172.16.0.127::1,172.16.0.13::1,172.16.0.145::1,172.16.0.149::1,172.16.3.197::1,34.215.24.225::1,52.216.131.165::1,52.216.132.69::1,52.216.133.181::1,52.218.196.122::1,52.218.196.130::1,52.218.209.26::1,52.218.245.82::1,52.84.235.102::1,54.230.147.47::1,54.230.147.59::1,54.231.169.66::1,fyodor@froth.ly::1",T1030,1,No,,1
+Impact,"Inhibit System Recovery","-","bstoll-l::1,frothlyuser::1",T1490,1,No,,1
+"Lateral Movement","Remote Services","-","104.207.83.63::1,107.77.211.7::1,185.192.69.97::1,185.217.117.107::1,fyodor@froth.ly::1",T1021,1,No,"Remote Desktop Protocol
+SMB/Windows Admin Shares
+Distributed Component Object Model
+SSH
+VNC
+Windows Remote Management",1
+Persistence,"Create Account","-","bstoll-l::1,frothlyuser::1",T1136,1,No,"Local Account
+Domain Account
+Cloud Account",1
+"Defense Evasion","Abuse Elevation Control Mechanism","Bypass User Access Control","bstoll::16,bstoll-l::16,frothlyuser::16,gravity::16","T1548.002",16,Yes,"Setuid and Setgid
+Bypass User Access Control
+Sudo and Sudo Caching
+Elevated Execution with Prompt",16
+"Privilege Escalation","Abuse Elevation Control Mechanism","Bypass User Access Control","bstoll::16,bstoll-l::16,frothlyuser::16,gravity::16","T1548.002",16,Yes,"Setuid and Setgid
+Bypass User Access Control
+Sudo and Sudo Caching
+Elevated Execution with Prompt",16
+"Defense Evasion","Indicator Removal on Host","Clear Windows Event Logs","bstoll::1,bstoll-l::1,frothlyuser::1,gravity::1","T1070.001",1,Yes,"Clear Windows Event Logs
+Clear Linux or Mac System Logs
+Clear Command History
+File Deletion
+Network Share Connection Removal
+Timestomp",1
+Collection,"Data Staged","Local Data Staging","bstoll::1,bstoll-l::1,frothlyuser::1,gravity::1","T1074.001",1,Yes,"Local Data Staging
+Remote Data Staging",1
+"Defense Evasion","Trusted Developer Utilities Proxy Execution",MSBuild,"bstoll-l::1,frothlyuser::1","T1127.001",1,Yes,MSBuild,1
+"Defense Evasion","Signed Binary Proxy Execution",Mshta,"bstoll::1,gravity::1","T1218.005",1,Yes,"Compiled HTML File
+Control Panel
+CMSTP
+InstallUtil
+Mshta
+Msiexec
+Odbcconf
+Regsvcs/Regasm
+Regsvr32
+Rundll32",1
+Execution,"Command and Scripting Interpreter",PowerShell,"FYODOR-L.froth.ly::1,bstoll::1,bstoll-l::1,frothlyuser::1,fyodor@froth.ly::1,gravity::1","T1059.001",1,Yes,"PowerShell
+AppleScript
+Windows Command Shell
+Unix Shell
+Visual Basic
+Python
+JavaScript/JScript",1
+Persistence,"Boot or Logon Autostart Execution","Registry Run Keys / Startup Folder","bstoll-l::16","T1547.001",16,Yes,"Registry Run Keys / Startup Folder
+Authentication Package
+Time Providers
+Winlogon Helper DLL
+Security Support Provider
+Kernel Modules and Extensions
+Re-opened Applications
+LSASS Driver
+Shortcut Modification
+Port Monitors
+Plist Modification",16
+"Privilege Escalation","Boot or Logon Autostart Execution","Registry Run Keys / Startup Folder","bstoll-l::16","T1547.001",16,Yes,"Registry Run Keys / Startup Folder
+Authentication Package
+Time Providers
+Winlogon Helper DLL
+Security Support Provider
+Kernel Modules and Extensions
+Re-opened Applications
+LSASS Driver
+Shortcut Modification
+Port Monitors
+Plist Modification",16
+"Defense Evasion","Signed Binary Proxy Execution",Regsvr32,"bstoll-l::1,frothlyuser::1","T1218.010",1,Yes,"Compiled HTML File
+Control Panel
+CMSTP
+InstallUtil
+Mshta
+Msiexec
+Odbcconf
+Regsvcs/Regasm
+Regsvr32
+Rundll32",1
+"Lateral Movement","Remote Services","Remote Desktop Protocol","10.1.1.103::1,bstoll::1","T1021.001",1,Yes,"Remote Desktop Protocol
+SMB/Windows Admin Shares
+Distributed Component Object Model
+SSH
+VNC
+Windows Remote Management",1

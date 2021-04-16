@@ -1,0 +1,825 @@
+name,"mitre_id",enabled
+"Abnormally High Number Of Cloud Infrastructure API Calls","T1078.004",No
+"Abnormally High Number Of Cloud Security Group API Calls","T1078.004",No
+"AWS Create Policy Version To Allow All Resources","T1078.004",No
+"AWS Createaccesskey","T1136.003",No
+"AWS Createloginprofile","T1136.003",No
+"AWS Detect Users Creating Keys With Encrypt Policy Without MFA",T1486,No
+"AWS Detect Users With Kms Keys Performing Encryption S3",T1486,No
+"AWS Network Access Control List Created With All Open Ports","T1562.007",No
+"AWS Network Access Control List Deleted","T1562.007",No
+"AWS Saml Access By Provider User And Principal",T1078,No
+"AWS Saml Update Identity Provider",T1078,No
+"AWS Setdefaultpolicyversion","T1078.004",No
+"AWS Updateloginprofile","T1136.003",No
+"Cloud API Calls From Previously Unseen User Roles",T1078,No
+"Cloud Compute Instance Created By Previously Unseen User","T1078.004",No
+"Cloud Compute Instance Created In Previously Unused Region",T1535,No
+"Cloud Instance Modified By Previously Unseen User","T1078.004",No
+"Cloud Provisioning Activity From Previously Unseen City",T1078,No
+"Cloud Provisioning Activity From Previously Unseen Country",T1078,No
+"Cloud Provisioning Activity From Previously Unseen IP Address",T1078,No
+"Cloud Provisioning Activity From Previously Unseen Region",T1078,No
+"Detect AWS Console Login By User From New City",T1535,No
+"Detect AWS Console Login By User From New Country",T1535,No
+"Detect AWS Console Login By User From New Region",T1535,No
+"Detect New Open S3 Buckets",T1530,No
+"Detect New Open S3 Buckets Over AWS Cli",T1530,No
+"O365 Add App Role Assignment Grant User","T1136.003",No
+"O365 Added Service Principal","T1136.003",No
+"O365 Bypass MFA Via Trusted IP","T1562.007",No
+"O365 Disable MFA",T1556,No
+"O365 Excessive Authentication Failures Alert",T1110,No
+"O365 Excessive Sso Logon Errors",T1556,No
+"O365 New Federated Domain Added","T1136.003",No
+"O365 Pst Export Alert",T1114,No
+"O365 Suspicious Admin Email Forwarding","T1114.003",No
+"O365 Suspicious Rights Delegation","T1114.002",No
+"O365 Suspicious User Email Forwarding","T1114.003",No
+"Abnormally High AWS Instances Launched By User","T1078.004",No
+"Abnormally High AWS Instances Terminated By User","T1078.004",No
+"AWS Cloud Provisioning From Previously Unseen City",T1535,No
+"AWS Cloud Provisioning From Previously Unseen Country",T1535,No
+"AWS Cloud Provisioning From Previously Unseen Region",T1535,No
+"Clients Connecting To Multiple DNS Servers","T1048.003",No
+"Detect AWS API Activities From Unapproved Accounts","T1078.004",No
+"Detect DNS Requests To Phishing Sites Leveraging Evilginx2","T1566.003",No
+"Detect Long DNS Txt Record Response","T1048.003",No
+"Detect Mimikatz Via Powershell And Eventcode 4703","T1003.001",No
+"Detect New API Calls From User Roles","T1078.004",No
+"Detect New User AWS Console Login","T1078.004",No
+"Detect Spike In AWS API Activity","T1078.004",No
+"Detect Spike In Network ACL Activity","T1562.007",No
+"Detect Spike In Security Group Activity","T1078.004",No
+"Detect Web Traffic To Dynamic Domain Providers","T1071.001",No
+"Detection Of DNS Tunnels","T1048.003",No
+"DNS Query Requests Resolved By Unauthorized DNS Servers","T1071.004",No
+"DNS Record Changed","T1071.004",No
+"EC2 Instance Modified With Previously Unseen User","T1078.004",No
+"EC2 Instance Started In Previously Unseen Region",T1535,No
+"EC2 Instance Started With Previously Unseen User","T1078.004",No
+"Execution Of File With Spaces Before Extension","T1036.003",No
+"First Time Seen Command Line Argument","T1059.001
+T1059.003",No
+"GCP Detect Accounts With High Risk Roles By Project",T1078,No
+"GCP Detect High Risk Permissions By Resource And Account",T1078,No
+"GCP Detect Oauth Token Abuse",T1078,No
+"GCP GCR Container Uploaded",T1525,No
+"GCP Kubernetes Cluster Scan Detection",T1526,No
+"Identify New User Accounts","T1078.002",No
+"Kubernetes Azure Scan Fingerprint",T1526,No
+"Processes Created By Netsh","T1562.004",No
+"Reg Exe Used To Hide Files Directories Via Registry Keys","T1564.001",No
+"Remote WMI Command Attempt",T1047,No
+"Scheduled Tasks Used In Badrabbit Ransomware","T1053.005",No
+"Suspicious Changes To File Associations","T1546.001",No
+"Suspicious Writes To System Volume Information",T1036,No
+"Uncommon Processes On Endpoint","T1204.002",No
+"Unsigned Image Loaded By LSASS","T1003.001",No
+"Windows Connhost Exe Started Forcefully","T1059.003",No
+"Access LSASS Memory For Dump Creation","T1003.001",No
+"Any Powershell Downloadfile","T1059.001",No
+"Any Powershell Downloadstring","T1059.001",No
+"Attempt To Add Certificate To Untrusted Store","T1553.004",No
+"Attempt To Set Default Powershell Execution Policy To Unrestricted Or Bypass","T1059.001",No
+"Attempt To Stop Security Service","T1562.001",No
+"Attempted Credential Dump From Registry Via Reg Exe","T1003.002",No
+"Batch File Write To System32","T1204.002",No
+"Bcdedit Failure Recovery Modification",T1490,No
+"Certutil Download With Urlcache And Split Arguments",T1105,No
+"Certutil Download With Verifyctl And Split Arguments",T1105,No
+"Certutil With Decode Argument",T1140,No
+"Clop Common Exec Parameter",T1204,No
+"Clop Ransomware Known Service Name",T1543,No
+"Cobalt Strike Named Pipes",T1055,No
+"Common Ransomware Extensions",T1485,No
+"Common Ransomware Notes",T1485,No
+"Create Local Admin Accounts Using Net Exe","T1136.001",No
+"Create Or Delete Windows Shares Using Net Exe","T1070.005",No
+"Create Remote Thread Into LSASS","T1003.001",No
+"Create Service In Suspicious File Path","T1569.001
+T1569.002",No
+"Creation Of LSASS Dump With Taskmgr","T1003.001",No
+"Creation Of Shadow Copy","T1003.003",No
+"Creation Of Shadow Copy With Wmic And Powershell","T1003.003",No
+"Credential Dumping Via Copy Command From Shadow Copy","T1003.003",No
+"Credential Dumping Via Symlink To Shadow Copy","T1003.003",No
+"Deleting Shadow Copies",T1490,No
+"Detect Activity Related To Pass The Hash Attacks","T1550.002",No
+"Detect Computer Changed With Anonymous Account",T1210,No
+"Detect Credential Dumping Through LSASS Access","T1003.001",No
+"Detect Excessive Account Lockouts From Endpoint","T1078.002",No
+"Detect Excessive User Account Lockouts","T1078.003",No
+"Detect Exchange Web Shell","T1505.003",No
+"Detect Html Help Renamed","T1218.001",No
+"Detect Html Help Spawn Child Process","T1218.001",No
+"Detect Html Help Url In Command Line","T1218.001",No
+"Detect Html Help Using Infotech Storage Handlers","T1218.001",No
+"Detect Mimikatz Using Loaded Images","T1003.001",No
+"Detect Mshta Inline Hta Execution","T1218.005",No
+"Detect Mshta Renamed","T1218.005",No
+"Detect Mshta Url In Command Line","T1218.005",No
+"Detect New Local Admin Account","T1136.001",No
+"Detect Path Interception By Creation Of Program Exe","T1574.009",No
+"Detect Processes Used For System Network Configuration Discovery",T1016,No
+"Detect Prohibited Applications Spawning Cmd Exe","T1059.003",No
+"Detect Psexec With Accepteula Flag","T1021.002",No
+"Detect Regasm Spawning A Process","T1218.009",No
+"Detect Regasm With Network Connection","T1218.009",No
+"Detect Regasm With No Command Line Arguments","T1218.009",No
+"Detect Regsvcs Spawning A Process","T1218.009",No
+"Detect Regsvcs With Network Connection","T1218.009",No
+"Detect Regsvcs With No Command Line Arguments","T1218.009",No
+"Detect Regsvr32 Application Control Bypass","T1218.010",No
+"Detect Rundll32 Inline Hta Execution","T1218.005",No
+"Detect Use Of Cmd Exe To Launch Script Interpreters","T1059.003",No
+"Disabling Remote User Account Control","T1548.002",No
+"Dump LSASS Via Comsvcs DLL","T1003.001",No
+"Dump LSASS Via Procdump","T1003.001",No
+"Dump LSASS Via Procdump Rename","T1003.001",No
+"Eventvwr Uac Bypass","T1548.002",No
+"Execution Of File With Multiple Extensions","T1036.003",No
+"First Time Seen Child Process Of Zoom",T1068,No
+"Fodhelper Uac Bypass","T1112
+T1548.002",No
+"Hiding Files And Directories With Attrib Exe","T1222.001",No
+"High File Deletion Frequency",T1485,No
+"High Process Termination Frequency",T1486,No
+"Kerberoasting Spn Request With RC4 Encryption","T1558.003",No
+"Malicious Powershell Process With Obfuscation Techniques","T1059.001",No
+"Monitor Registry Keys For Print Monitors","T1547.010",No
+"Nishang Powershelltcponeline","T1059.001",No
+"Nltest Domain Trust Discovery",T1482,No
+"Ntdsutil Export Ntds","T1003.003",No
+"Overwriting Accessibility Binaries","T1546.008",No
+"Process Creating Lnk File In Suspicious Location","T1566.002",No
+"Process Deleting Its Process File Path","T1003.002",No
+"Process Execution Via WMI",T1047,No
+"Processes Launching Netsh","T1562.004",No
+"Ransomware Notes Bulk Creation",T1486,No
+"Reg Exe Manipulating Windows Services Registry Keys","T1574.011",No
+"Registry Keys For Creating Shim Databases","T1546.011",No
+"Registry Keys Used For Persistence","T1547.001",No
+"Registry Keys Used For Privilege Escalation","T1546.012",No
+"Remote Process Instantiation Via WMI",T1047,No
+"Resize Shadowstorage Volume",T1490,No
+"Rundll Loading DLL By Ordinal","T1218.011",No
+"Ryuk Test Files Detected",T1486,No
+"Ryuk Wake On Lan Command","T1059.003",No
+"Samsam Test File Write",T1486,No
+"Sc Exe Manipulating Windows Services","T1543.003",No
+"Scheduled Task Deleted Or Created Via Cmd","T1053.005",No
+"Schtasks Scheduling Job On Remote System","T1053.005",No
+"Schtasks Used For Forcing A Reboot","T1053.005",No
+"Script Execution Via WMI",T1047,No
+"Shim Database File Creation","T1546.011",No
+"Shim Database Installation With Suspicious Parameters","T1546.011",No
+"Short Lived Windows Accounts","T1136.001",No
+"Single Letter Process On Endpoint","T1204.002",No
+"Suspicious Dllhost No Command Line Arguments",T1055,No
+"Suspicious Gpupdate No Command Line Arguments",T1055,No
+"Suspicious Microsoft Workflow Compiler Rename","T1127
+T1036.003",No
+"Suspicious Microsoft Workflow Compiler Usage",T1127,No
+"Suspicious Msbuild Path","T1127.001
+T1036.003",No
+"Suspicious Msbuild Rename","T1127.001
+T1036.003",No
+"Suspicious Msbuild Spawn","T1127.001",No
+"Suspicious Mshta Child Process","T1218.005",No
+"Suspicious Mshta Spawn","T1218.005",No
+"Suspicious Reg Exe Process",T1112,No
+"Suspicious Regsvr32 Register Suspicious Path","T1218.010",No
+"Suspicious Rundll32 Dllregisterserver","T1218.011",No
+"Suspicious Rundll32 Rename","T1218.011
+T1036.003",No
+"Suspicious Rundll32 Startw","T1218.011",No
+"Suspicious Rundll32 No Command Line Arguments","T1218.011",No
+"Suspicious Scheduled Task From Public Directory","T1053.005",No
+"Suspicious Searchprotocolhost No Command Line Arguments",T1055,No
+"Suspicious Wevtutil Usage","T1070.001",No
+"Suspicious Writes To Windows Recycle Bin",T1036,No
+"System Information Discovery Detection",T1082,No
+"System Processes Run From Unexpected Locations","T1036.003",No
+"Unified Messaging Service Spawning A Process",T1190,No
+"Unload Sysmon Filter Driver","T1562.001",No
+"Usn Journal Deletion",T1070,No
+"W3Wp Spawning Shell","T1505.003",No
+"Wbadmin Delete System Backups",T1490,No
+"Windows Disableantispyware Registry","T1562.001",No
+"Windows Event Log Cleared","T1070.001",No
+"Windows Security Account Manager Stopped",T1489,No
+"Email Files Written Outside Of The Outlook Directory","T1114.001",No
+"Email Servers Sending High Volume Traffic To Hosts","T1114.002",No
+"Multiple Okta Users With Invalid Credentials From The Same IP","T1078.001",No
+"Okta Account Lockout Events","T1078.001",No
+"Okta Failed Sso Attempts","T1078.001",No
+"Okta User Logins From Multiple Cities","T1078.001",No
+"Suspicious Email Attachment Extensions","T1566.001",No
+"Web Servers Executing Suspicious Processes",T1082,No
+"Abnormally High Number Of Cloud Instances Destroyed","T1078.004",No
+"Abnormally High Number Of Cloud Instances Launched","T1078.004",No
+"Amazon EKS Kubernetes Cluster Scan Detection",T1526,No
+"Amazon EKS Kubernetes Pod Scan Detection",T1526,No
+"AWS Detect Attach To Role Policy",T1078,No
+"AWS Detect Permanent Key Creation",T1078,No
+"AWS Detect Role Creation",T1078,No
+"AWS Detect Sts Assume Role Abuse",T1078,No
+"AWS Detect Sts Get Session Token Abuse",T1550,No
+"Detect GCP Storage Access From A New IP",T1530,No
+"Detect New Open GCP Storage Buckets",T1530,No
+"Detect S3 Access From A New IP",T1530,No
+"Detect Spike In S3 Bucket Deletion",T1530,No
+"GCP Detect Gcploit Framework",T1078,No
+"GCP Kubernetes Cluster Pod Scan Detection",T1526,No
+"High Number Of Login Failures From A Single Source","T1110.001",No
+"New Container Uploaded To AWS Ecr",T1525,No
+"Child Processes Of Spoolsv Exe",T1068,No
+"Detect Oulook Exe Writing A Zip File","T1566.001",No
+"Detection Of Tools Built By Nirsoft",T1072,No
+"First Time Seen Running Windows Service","T1569.002",No
+"Remote Desktop Process Running On System","T1021.001",No
+"Sunburst Correlation DLL And Network Event",T1203,No
+"Suspicious Curl Network Connection",T1105,No
+"Suspicious Plistbuddy Usage","T1543.001",No
+"Suspicious Plistbuddy Usage Via Osquery","T1543.001",No
+"Suspicious Sqlite3 Lsquarantine Behavior",T1074,No
+"Windows Adfind Exe",T1018,No
+"WMI Permanent Event Subscription",T1047,No
+"WMI Temporary Event Subscription",T1047,No
+"Detect Arp Poisoning","T1200
+T1498
+T1557.002",No
+"Detect Ipv6 Network Infrastructure Threats","T1200
+T1498
+T1557.002",No
+"Detect Large Outbound ICMP Packets",T1095,No
+"Detect Outbound SMB Traffic","T1071.002",No
+"Detect Port Security Violation","T1200
+T1498
+T1557.002",No
+"Detect Rogue DHCP Server","T1200
+T1498
+T1557",No
+"Detect Snicat Sni Exfiltration",T1041,No
+"Detect Software Download To Network Device","T1542.005",No
+"Detect Traffic Mirroring","T1200
+T1498
+T1020.001",No
+"Detect Windows DNS Sigred Via Splunk Stream",T1203,No
+"Detect Windows DNS Sigred Via Zeek",T1203,No
+"Detect Zerologon Via Zeek",T1190,No
+"Hosts Receiving High Volume Of Network Traffic From Email Server","T1114.002",No
+"Large Volume Of DNS Any Queries","T1498.002",No
+"Prohibited Network Traffic Allowed",T1048,No
+"Protocol Or Port Mismatch","T1048.003",No
+"Remote Desktop Network Bruteforce","T1021.001",No
+"Remote Desktop Network Traffic","T1021.001",No
+"SMB Traffic Spike","T1021.002",No
+"Tor Traffic","T1071.001",No
+"Detect Attackers Scanning For Vulnerable Jboss Servers",T1082,No
+"Sql Injection With Long Urls",T1190,No
+"Supernova Webshell","T1505.003",No
+"Detect Hosts Connecting To Dynamic Domain Providers",T1189,No
+"DNS Query Length With High Standard Deviation","T1048.003",No
+"Cloud Provisioning Activity from Unusual Country","T1078.004",No
+"Cloud Provisioning Activity from Unusual IP","T1078.004",No
+"Instance Created by Unusual User","T1078.004",No
+"Instance Modified by Unusual User","T1078.004",No
+"New Cloud API Call Per Peer Group","T1078.004",No
+"New IaaS API Call Per User","T1580
+T1526",No
+"Unusual Number of Modifications to Cloud ACLs","T1078.004",No
+"Successful Login of Account for Former Employee","T1078
+T1098",No
+"Basic Malware Outbreak","T1189
+T1193
+T1192
+T1204
+T1068
+T1566.001
+T1566.002",No
+"Basic Scanning","T1046
+T1018",No
+"Large Web Upload","T1041
+T1048",No
+"Multiple Infections on Host","T1189
+T1193
+T1192
+T1204
+T1566.001
+T1566.002",No
+"Connection to New Domain","T1041
+T1048
+T1071",No
+"Recurring Infection on Host","T1189
+T1192
+T1193
+T1204
+T1566.001
+T1566.002",No
+"Unauthorized Connection Through Firewall","T1041
+T1048
+T1094
+T1032
+T1095
+T1046",No
+"Endpoint Uncleaned Malware Detection","T1204
+T1189
+T1193
+T1192
+T1566.001
+T1566.002",No
+"Activity from Expired User Identity - on Category",T1078,No
+"Brute Force Access Behavior Detected - Against Category","T1110
+T1078",No
+"Brute Force Access Behavior Detected Over One Day - Against Category","T1110
+T1078",No
+"Geographically Improbable Access Detected against Category",T1078,No
+"In-Scope System with Windows Update Disabled","T1089
+T1562.001",No
+"Unusual Cloud Regions","T1078.004",No
+"Disabled Update Service","T1089
+T1562.001",No
+"Aggregate Risky Events","T1078
+T1076
+T1028
+T1021.006
+T1021.001",No
+"Basic Brute Force Detection",T1110,No
+"User Logged into In-Scope System They Should Not Have","T1078
+T1213
+T1098",No
+"User Finding Project Code Names from Many Departments",T1213,No
+"Flight Risk Printing",T1052,No
+"Geographically Improbable Access Detected for Privileged Accounts",T1078,No
+"Many USB File Copies for User","T1052.001",No
+"New Cloud Provider for User","T1048
+T1102",No
+"New Data Exfil DLP Alerts for User",TA0010,No
+"New User Taking Privileged Actions","T1078
+T1136",No
+"Old Passwords in Use",T1110,No
+"Non-Privileged Users taking Privileged Actions",T1078,No
+"Risky Events from Privileged Users",T1078,No
+"Emails with Lookalike Domains","T1192
+T1566.002",No
+"Emails from Outside the Organization with Company Domains","T1192
+T1566.002",No
+"First Time Accessing an Internal Git Repository",T1213,No
+"First Time Accessing an Internal Git Repository Not Viewed by Peers",T1213,No
+"First Time Logon to New Server","T1076
+T1021.001",No
+"First Time Access to Jump Server for Peer Group","T1078
+T1076
+T1021.001",No
+"Authentication Against a New Domain Controller",T1021,No
+"First Time USB Usage","T1091
+T1025
+T1052.001",No
+"Increase in Source Code (Git) Downloads",T1213,No
+"Processes with High Entropy Names",T1027,No
+"Hosts Where Security Sources Go Quiet","T1089
+T1562.001",No
+"Hosts with Varied and Future Timestamps","T1099
+T1070.006",No
+"Sources Sending Many DNS Requests","T1041
+T1043
+T1071",No
+"Sources Sending a High Volume of DNS Traffic","T1048
+T1071
+T1041",No
+"Significant Increase in Interactively Logged On Users",T1078,No
+"Increase in Windows Privilege Escalations","T1053
+T1134",No
+"Significant Increase in Interactive Logons","TA0008
+T1078
+T1021",No
+"Processes with Lookalike (typo) Filenames","T1036
+T1035
+T1569.002",No
+"Increase in # of Hosts Logged into",T1021,No
+"Hosts Sending To More Destinations Than Normal","T1018
+T1046",No
+"New AD Domain Detected","T1075
+T1550.002",No
+"New Suspicious cmd.exe / regedit.exe / powershell.exe Service Launch","T1050
+T1543.003",No
+"New Interactive Logon from a Service Account","T1078
+T1021",No
+"New Local Admin Account","T1078.003
+T1136.001",No
+"New Logon Type for User",T1078,No
+"New Parent Process for cmd.exe or regedit.exe",T1059,No
+"Common Filename Launched from New Path",T1036,No
+"Familiar Filename Launched with New Path on Host",T1036,No
+"New RunAs Host / Privileged Account Combination","T1053
+T1078",No
+"New Service Paths for Host","T1036
+T1050
+T1543.003",No
+"New Application Accessing Salesforce.com API",T1213,No
+"New High Risk Event Types for Salesforce.com User","TA0010
+T1102",No
+"New Tables Queried by Salesforce.com User","T1213
+T1018",No
+"New Tables Queried by Salesforce.com Peer Group","T1213
+T1018",No
+"New Suspicious Executable Launch for User","TA0002
+T1059",No
+"Remote PowerShell Launches",T1021,No
+"Find Processes with Renamed Executables",T1036,No
+"Concentration of Attacker Tools by Filename","T1087
+T1069
+T1057
+T1018
+T1063
+T1082
+T1016
+T1049
+T1010
+T1033
+T1007
+T1012
+T1046
+T1003
+T1050
+T1031
+T1058
+T1053
+T1035
+T1029
+T1098
+T1089
+T1054
+T1059
+T1543.003
+T1569.002
+T1562.006
+T1574.011
+T1518.001
+T1021.002
+T1562.001",No
+"Concentration of Attacker Tools by SHA1 Hash","T1087
+T1010
+T1069
+T1057
+T1012
+T1082
+T1016
+T1063
+T1007
+T1033
+T1049
+T1003
+T1050
+T1031
+T1058
+T1035
+T1029
+T1053
+T1089
+T1098
+T1059
+T1054
+T1543.003
+T1569.002
+T1562.006
+T1574.011
+T1518.001
+T1021.002
+T1562.001",No
+"Concentration of Discovery Tools by Filename","T1087
+T1069
+T1057
+T1016
+T1033
+T1082
+T1007",No
+"Concentration of Discovery Tools by SHA1 Hash","T1087
+T1069
+T1016
+T1082
+T1033
+T1057
+T1007",No
+"Short Lived Admin Accounts","T1136
+TA0005",No
+"Increase in Pages Printed",T1052,No
+"User with Increase in Outgoing Email",T1048,No
+"Spike in Password Reset Emails","T1192
+T1566.002",No
+"Spike in Downloaded Documents Per User from Salesforce.com",T1213,No
+"Spike in Exported Records from Salesforce.com",T1213,No
+"Healthcare Worker Opening More Patient Records Than Usual","T1213
+T1039",No
+"Unusual Child Process for spoolsv.exe or connhost.exe",T1068,No
+"Find Unusually Long CLI Commands",T1059,No
+"Basic Dynamic DNS Detection","T1568.002
+T1071
+T1568.002",No
+"RFC1918 IP Not in CMDB",T1200,No
+"Detect Journal Clearing","T1070.001",No
+"Detect Lateral Movement With WMI","T1021
+T1047",No
+"Detect Log Clearing With wevtutil","T1070.001",No
+"Fake Windows Processes",T1036,No
+"Malicious Command Line Executions","T1064
+T1059.001
+T1059.003",No
+"Monitor AutoRun Registry Keys","T1547.001",No
+"Ransomware Extensions",T1204,No
+"Ransomware Note Files",T1204,No
+"SMB Traffic Allowed","T1210
+T1077
+T1035
+T1569.002
+T1021.002",No
+"Spike in SMB Traffic","T1135
+T1105
+T1021",No
+"Basic TOR Traffic Detection","T1041
+T1048
+T1071
+T1095
+T1188
+T1090.003",No
+"Windows Event Log Clearing Events","T1070.001",No
+"Stale Account Usage",T1078,No
+"Suspicious Container Image Name",T1496,No
+"Detect Many Unauthorized Access Attempts",T1110,No
+"Web Browsing to Unauthorized Sites","T1048
+T1071
+T1102",No
+"Cloud APIs Called More Often Than Usual Per User","T1526
+T1580",No
+"User Login with Local Credentials","T1098
+T1078.003",No
+"User Login to Unauthorized Geo",T1078,No
+"User with Many DLP Events",TA0010,No
+"Image From New Repository Detected",T1496,No
+"Sensitive Kubernetes Mount Pod Detected",T1496,No
+"Credentials In File Detected","T1212
+T1552.001
+T1552.004",No
+"Multiple Account Deletion by an Administrator","T1078
+T1098",No
+"Multiple Account Disabled by an Administrator","T1078
+T1098",No
+"Multiple Account Passwords changed by an Administrator","T1078
+T1098",No
+"Detect Credit Card Numbers using Luhn Algorithm","T1074.001",No
+"Abnormally High Number of Endpoint Changes By User","T1031
+T1112
+T1222
+T1543.003",No
+"Abnormally High Number of HTTP Method Events By Src","T1190
+T1110",No
+"Account Deleted",T1070,No
+"Activity from Expired User Identity",T1078,No
+"Anomalous Audit Trail Activity Detected","T1146
+T1107
+T1070.004
+T1070.003",No
+"Anomalous New Listening Port","T1065
+T1043",No
+"Anomalous New Process","T1035
+TA0002
+T1569.002",No
+"Anomalous New Service","T1050
+T1543.003",No
+"Brute Force Access Behavior Detected",T1110,No
+"Brute Force Access Behavior Detected Over One Day",T1110,No
+"Completely Inactive Account",T1078,No
+"Concurrent Login Attempts Detected",T1078,No
+"Default Account Activity Detected",T1110,No
+"Excessive DNS Queries",T1071,No
+"Excessive Failed Logins",T1110,No
+"Excessive HTTP Failure Responses","T1190
+T1110",No
+"Expected Host Not Reporting","T1089
+T1562.001",No
+"Geographically Improbable Access Detected",T1078,No
+"High Number of Hosts Not Updating Malware Signatures","T1089
+T1562.001",No
+"High Or Critical Priority Host With Malware Detected","T1189
+T1193
+T1192
+T1204
+T1566.001
+T1566.002",No
+"High or Critical Priority Individual Logging into Infected Machine",T1078,No
+"High Process Count","T1035
+T1569.002",No
+"High Volume Email Activity to Non-corporate Domains by User",TA0010,No
+"High Volume of Traffic from High or Critical Host Observed","T1048
+T1041",No
+"Host Sending Excessive Email","T1193
+T1192
+T1566.001
+T1566.002",No
+"Host With A Recurring Malware Infection",T1204,No
+"Host With Multiple Infections","T1189
+T1193
+T1192
+T1204
+T1566.001
+T1566.002",No
+"Host With Old Infection Or Potential Re-Infection",T1204,No
+"Inactive Account Activity Detected",T1078,No
+"Network Change Detected","T1089
+T1562.001",No
+"Network Device Rebooted","T1089
+T1562.001",No
+"New User Account Created On Multiple Hosts","T1078
+T1136",No
+"Outbreak Detected",TA0002,No
+"Prohibited Port Activity Detected",T1065,No
+"Prohibited Process Detected","T1050
+T1543.003",No
+"Prohibited Service Detected","T1035
+T1031
+T1050
+T1543.003
+T1569.002",No
+"Short-lived Account Detected","T1136
+T1078",No
+"Substantial Increase In Port Activity",T1065,No
+"Threat Activity Detected","T1071
+T1094",No
+"Unrouteable Activity Detected","T1046
+T1032
+T1095
+T1094",No
+"Vulnerability Scanner Detected (by events)","T1046
+T1018",No
+"Vulnerability Scanner Detected (by targets)",T1046,No
+"Web Uploads to Non-corporate Sites by Users","T1048
+T1102",No
+"Blacklisted Application",TA0002,No
+"Blacklisted Domain","T1094
+T1095
+T1071",No
+"Blacklisted IP Address","T1094
+T1095
+T1071
+T1048
+T1041",No
+"Brute Force Attack",T1110,No
+"Download from Internal Server","T1039
+T1213",No
+"Excessive Data Transmission","T1048
+T1041",No
+"External Website Attack",T1190,No
+"Failed Access by Disabled Badge","T1591.001",No
+"Land Speed Violation",T1078,No
+"Local Account Creation",T1136,No
+"Machine Generated Beacon","T1094
+T1071
+T1095",No
+"Malicious AD Activity","T1078
+T1097",No
+"Multiple Authentication Failures",T1110,No
+"Multiple Authentications","T1078
+T1110",No
+"Multiple Box logins",T1078,No
+"Multiple Box operations",TA0009,No
+"Multiple Failed Badge Access Attempts","T1591.001",No
+"Multiple Logins","T1078
+T1028",No
+"Network Protocol Violation",T1499,No
+"Period with Unusual Windows Security Event Sequences",T1078,No
+"Possible Phishing Attempt","T1193
+T1192",No
+"Potential Webshell Activity",T1100,No
+"Scanning Activity",T1046,No
+"Suspicious Account Activity","T1136
+T1078",No
+"Suspicious Account Lockout",T1110,No
+"Suspicious Box Usage","T1011
+T1102
+TA0010",No
+"Suspicious Data Movement","T1213
+T1039
+T1041
+T1048
+TA0010
+T1011
+TA0009",No
+"Suspicious Domain Communication","T1094
+T1071
+T1095",No
+"Suspicious Domain Name","T1192
+T1043
+T1071
+T1568.002
+T1598.003",No
+"Suspicious HTTP Redirects",T1189,No
+"Suspicious Network Connection","T1021
+T1105
+T1041
+T1011
+T1048",No
+"Suspicious Network Exploration","T1078
+TA0008
+T1021
+T1105",No
+"Suspicious New Access",T1011,No
+"Suspicious Powershell Activity",T1086,No
+"Suspicious Privilege Escalation","T1086
+T1078",No
+"Unusual Activity Time",T1078,No
+"Unusual Badge Reader Access","T1591.001",No
+"Unusual Cloud Storage Deletions",T1485,No
+"Unusual Cloud Storage Downloads",T1011,No
+"Unusual File Extension","T1486
+T1193",No
+"Unusual Geolocation of Communication Destination","T1071
+T1095
+T1094
+T1048
+T1041",No
+"Unusual Machine Access",T1078,No
+"Unusual Network Activity","T1024
+T1094
+T1065",No
+"Unusual Printer Usage",T1052,No
+"Unusual Time of Badge Access","T1591.001",No
+"Unusual USB Activity","T1052
+T1091
+T1200",No
+"Unusual USB Device Plugged In","T1091
+T1052",No
+"Unusual VPN Login Geolocation",T1078,No
+"Unusual Web Browser","T1071
+T1041
+T1043",No
+"Unusual Windows Security Event (Unusual - Event Code, Process, Directory, LoginType, ReturnCode, Domain)",TA0002,No
+"Unusually Long VPN Session","T1048
+T1108",No
+"USB storage attached an unusually high number of times",T1052,No
+"Data Staging","T1011
+T1048",No
+"Multiple Login Errors","T1078
+T1110",No
+"Suspicious IP Address Communication","T1094
+T1071
+T1095",No
+"Excessive Data Printed",T1052,No
+"Excessive Downloads via VPN",T1011,No
+"Multiple Outgoing Connections","T1041
+T1048
+T1094
+T1095
+T1032
+T1104",No
+"Service Account Login",T1078,No
+"Detect attackers scanning for vulnerable JBoss servers",T1082,No
+"Attempt To Set Default PowerShell Execution Policy To Unrestricted or Bypass","T1086
+T1064",No
+"Hiding Files And Directories With Attrib.exe",T1158,No
+"Child Processes of Spoolsv.exe",T1068,No
+"Create or delete hidden shares using net.exe",T1059,No
+"Create local admin accounts using net.exe",T1059,No
+"Attempted Credential Dump From Registry Via Reg.exe",T1003,No
+"Detect Use of cmd.exe to Launch Script Interpreters",T1059,No
+"Excessive DNS Failures","T1048
+T1043",No
+"Detect Long DNS TXT Record Response",T1043,No
+"Malicious PowerShell Process With Obfuscation Techniques","T1086
+T1064",No
+"Detect Mimikatz Via PowerShell And EventCode 4663",T1003,No
+"Processes launching netsh","T1059
+T1089",No
+"Detect Prohibited Applications Spawning cmd.exe",T1059,No
+"Reg.exe Manipulating Windows Services Registry Keys","T1050
+T1031
+T1089",No
+"Reg.exe used to hide files/directories via registry keys","T1060
+T1112",No
+"Sc.exe Manipulating Windows Services","T1050
+T1031
+T1089",No
+"SQL Injection with Long URLs","T1068
+T1043",No
+"Suspicious Reg.exe Process","T1112
+T1089",No
+"Abnormally High AWS Instances Launched By User - MLTK","T1078.004",No
+"Abnormally High AWS Instances Terminated By User - MLTK","T1078.004",No
+"Malicious Powershell Process - Multiple Suspicious Command-Line Arguments","T1059.001",No
+"Suspicious Email - UBA Anomaly",T1566,No
+"Web Fraud - Account Harvesting",T1136,No
+"Web Fraud - Anomalous User Clickspeed",T1078,No
+"Detect Rundll32 Application Control Bypass - Advpack","T1218.011",No
+"Detect Rundll32 Application Control Bypass - Setupapi","T1218.011",No
+"Detect Rundll32 Application Control Bypass - Syssetup","T1218.011",No
+"Malicious Powershell Process - Connect To Internet With Hidden Window","T1059.001",No
+"Malicious Powershell Process - Encoded Command",T1027,No
+"Malicious Powershell Process - Execution Policy Bypass","T1059.001",No
+"WMI Permanent Event Subscription - Sysmon","T1546.003",No
+"Detect Baron Samedit Cve-2021-3156",T1068,No
+"Detect Baron Samedit Cve-2021-3156 Segfault",T1068,No
+"Detect Baron Samedit Cve-2021-3156 Via Osquery",T1068,No
+"DNS Query Length Outliers - MLTK","T1071.004",No
+"SMB Traffic Spike - MLTK","T1021.002",No
+"Detect F5 Tmui RCE Cve-2020-5902",T1190,No

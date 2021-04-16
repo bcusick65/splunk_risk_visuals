@@ -1,0 +1,738 @@
+Tactic,Technique,"Sub_Technique","technique_count",IsSubTechnique,"Sub_Technique_List","sub_technique_count"
+Collection,"Data Staged","-",1,No,"Local Data Staging
+Remote Data Staging",
+Collection,"Data Staged","Local Data Staging",1,Yes,"Local Data Staging
+Remote Data Staging",1
+Collection,"Data from Cloud Storage Object","-",6,No,,
+Collection,"Data from Information Repositories","-",7,No,"Confluence
+Sharepoint",
+Collection,"Email Collection","-",1,No,"Local Email Collection
+Remote Email Collection
+Email Forwarding Rule",
+Collection,"Email Collection","Email Forwarding Rule",2,Yes,"Local Email Collection
+Remote Email Collection
+Email Forwarding Rule",2
+Collection,"Email Collection","Local Email Collection",1,Yes,"Local Email Collection
+Remote Email Collection
+Email Forwarding Rule",1
+Collection,"Email Collection","Remote Email Collection",3,Yes,"Local Email Collection
+Remote Email Collection
+Email Forwarding Rule",3
+"Command and Control","Application Layer Protocol","-",1,No,"Web Protocols
+File Transfer Protocols
+Mail Protocols
+DNS",
+"Command and Control","Application Layer Protocol",DNS,3,Yes,"Web Protocols
+File Transfer Protocols
+Mail Protocols
+DNS",3
+"Command and Control","Application Layer Protocol","File Transfer Protocols",1,Yes,"Web Protocols
+File Transfer Protocols
+Mail Protocols
+DNS",1
+"Command and Control","Application Layer Protocol","Web Protocols",2,Yes,"Web Protocols
+File Transfer Protocols
+Mail Protocols
+DNS",2
+"Command and Control","Ingress Tool Transfer","-",3,No,,
+"Command and Control","Non-Application Layer Protocol","-",1,No,,
+"Credential Access","Brute Force","-",11,No,"Password Guessing
+Password Cracking
+Password Spraying
+Credential Stuffing",
+"Credential Access","Brute Force","Password Guessing",1,Yes,"Password Guessing
+Password Cracking
+Password Spraying
+Credential Stuffing",1
+"Credential Access","Modify Authentication Process","-",8,No,"Domain Controller Authentication
+Password Filter DLL
+Pluggable Authentication Modules",
+"Credential Access","OS Credential Dumping","-",2,No,"LSASS Memory
+Security Account Manager
+NTDS
+LSA Secrets
+Cached Domain Credentials
+DCSync
+Proc Filesystem
+/etc/passwd and /etc/shadow",
+"Credential Access","OS Credential Dumping","LSASS Memory",10,Yes,"LSASS Memory
+Security Account Manager
+NTDS
+LSA Secrets
+Cached Domain Credentials
+DCSync
+Proc Filesystem
+/etc/passwd and /etc/shadow",10
+"Credential Access","OS Credential Dumping",NTDS,5,Yes,"LSASS Memory
+Security Account Manager
+NTDS
+LSA Secrets
+Cached Domain Credentials
+DCSync
+Proc Filesystem
+/etc/passwd and /etc/shadow",5
+"Credential Access","OS Credential Dumping","Security Account Manager",2,Yes,"LSASS Memory
+Security Account Manager
+NTDS
+LSA Secrets
+Cached Domain Credentials
+DCSync
+Proc Filesystem
+/etc/passwd and /etc/shadow",2
+"Credential Access","Steal or Forge Kerberos Tickets",Kerberoasting,1,Yes,"Golden Ticket
+Silver Ticket
+Kerberoasting",1
+"Defense Evasion","Abuse Elevation Control Mechanism","Bypass User Access Control",8,Yes,"Setuid and Setgid
+Bypass User Access Control
+Sudo and Sudo Caching
+Elevated Execution with Prompt",8
+"Defense Evasion","Deobfuscate/Decode Files or Information","-",1,No,,
+"Defense Evasion","File and Directory Permissions Modification","Windows File and Directory Permissions Modification",1,Yes,"Windows File and Directory Permissions Modification
+Linux and Mac File and Directory Permissions Modification",1
+"Defense Evasion","Hide Artifacts","Hidden Files and Directories",1,Yes,"Hidden Files and Directories
+Hidden Users
+Hidden Window
+NTFS File Attributes
+Hidden File System
+Run Virtual Instance",1
+"Defense Evasion","Hijack Execution Flow","Path Interception by Unquoted Path",9,Yes,"DLL Search Order Hijacking
+DLL Side-Loading
+Dylib Hijacking
+Executable Installer File Permissions Weakness
+LD_PRELOAD
+Path Interception by PATH Environment Variable
+Path Interception by Search Order Hijacking
+Path Interception by Unquoted Path
+Services File Permissions Weakness
+Services Registry Permissions Weakness
+COR_PROFILER",9
+"Defense Evasion","Hijack Execution Flow","Services Registry Permissions Weakness",9,Yes,"DLL Search Order Hijacking
+DLL Side-Loading
+Dylib Hijacking
+Executable Installer File Permissions Weakness
+LD_PRELOAD
+Path Interception by PATH Environment Variable
+Path Interception by Search Order Hijacking
+Path Interception by Unquoted Path
+Services File Permissions Weakness
+Services Registry Permissions Weakness
+COR_PROFILER",9
+"Defense Evasion","Impair Defenses","Disable or Modify Cloud Firewall",4,Yes,"Disable or Modify Tools
+Disable Windows Event Logging
+HISTCONTROL
+Disable or Modify System Firewall
+Indicator Blocking
+Disable or Modify Cloud Firewall",4
+"Defense Evasion","Impair Defenses","Disable or Modify System Firewall",2,Yes,"Disable or Modify Tools
+Disable Windows Event Logging
+HISTCONTROL
+Disable or Modify System Firewall
+Indicator Blocking
+Disable or Modify Cloud Firewall",2
+"Defense Evasion","Impair Defenses","Disable or Modify Tools",3,Yes,"Disable or Modify Tools
+Disable Windows Event Logging
+HISTCONTROL
+Disable or Modify System Firewall
+Indicator Blocking
+Disable or Modify Cloud Firewall",3
+"Defense Evasion","Indicator Removal on Host","-",2,No,"Clear Windows Event Logs
+Clear Linux or Mac System Logs
+Clear Command History
+File Deletion
+Network Share Connection Removal
+Timestomp",
+"Defense Evasion","Indicator Removal on Host","Clear Windows Event Logs",5,Yes,"Clear Windows Event Logs
+Clear Linux or Mac System Logs
+Clear Command History
+File Deletion
+Network Share Connection Removal
+Timestomp",5
+"Defense Evasion","Indicator Removal on Host","Network Share Connection Removal",1,Yes,"Clear Windows Event Logs
+Clear Linux or Mac System Logs
+Clear Command History
+File Deletion
+Network Share Connection Removal
+Timestomp",1
+"Defense Evasion",Masquerading,"-",6,No,"Invalid Code Signature
+Right-to-Left Override
+Rename System Utilities
+Masquerade Task or Service
+Match Legitimate Name or Location
+Space after Filename",
+"Defense Evasion",Masquerading,"Rename System Utilities",3,Yes,"Invalid Code Signature
+Right-to-Left Override
+Rename System Utilities
+Masquerade Task or Service
+Match Legitimate Name or Location
+Space after Filename",3
+"Defense Evasion","Modify Authentication Process","-",8,No,"Domain Controller Authentication
+Password Filter DLL
+Pluggable Authentication Modules",
+"Defense Evasion","Modify Registry","-",1,No,,
+"Defense Evasion","Obfuscated Files or Information","-",2,No,"Binary Padding
+Software Packing
+Steganography
+Compile After Delivery
+Indicator Removal from Tools",
+"Defense Evasion","Process Injection","-",16,No,"Dynamic-link Library Injection
+Portable Executable Injection
+Thread Execution Hijacking
+Asynchronous Procedure Call
+Thread Local Storage
+Ptrace System Calls
+Proc Memory
+Extra Window Memory Injection
+Process Hollowing
+Process Doppelganging
+VDSO Hijacking",
+"Defense Evasion","Signed Binary Proxy Execution","Compiled HTML File",4,Yes,"Compiled HTML File
+Control Panel
+CMSTP
+InstallUtil
+Mshta
+Msiexec
+Odbcconf
+Regsvcs/Regasm
+Regsvr32
+Rundll32",4
+"Defense Evasion","Signed Binary Proxy Execution",Mshta,6,Yes,"Compiled HTML File
+Control Panel
+CMSTP
+InstallUtil
+Mshta
+Msiexec
+Odbcconf
+Regsvcs/Regasm
+Regsvr32
+Rundll32",6
+"Defense Evasion","Signed Binary Proxy Execution","Regsvcs/Regasm",6,Yes,"Compiled HTML File
+Control Panel
+CMSTP
+InstallUtil
+Mshta
+Msiexec
+Odbcconf
+Regsvcs/Regasm
+Regsvr32
+Rundll32",6
+"Defense Evasion","Signed Binary Proxy Execution",Regsvr32,2,Yes,"Compiled HTML File
+Control Panel
+CMSTP
+InstallUtil
+Mshta
+Msiexec
+Odbcconf
+Regsvcs/Regasm
+Regsvr32
+Rundll32",2
+"Defense Evasion","Signed Binary Proxy Execution",Rundll32,7,Yes,"Compiled HTML File
+Control Panel
+CMSTP
+InstallUtil
+Mshta
+Msiexec
+Odbcconf
+Regsvcs/Regasm
+Regsvr32
+Rundll32",7
+"Defense Evasion","Subvert Trust Controls","Install Root Certificate",1,Yes,"Gatekeeper Bypass
+Code Signing
+SIP and Trust Provider Hijacking
+Install Root Certificate",1
+"Defense Evasion","Trusted Developer Utilities Proxy Execution","-",1,No,MSBuild,
+"Defense Evasion","Trusted Developer Utilities Proxy Execution",MSBuild,1,Yes,MSBuild,1
+"Defense Evasion","Unused/Unsupported Cloud Regions","-",8,No,,
+"Defense Evasion","Use Alternate Authentication Material","-",4,No,"Application Access Token
+Pass the Hash
+Pass the Ticket
+Web Session Cookie",
+"Defense Evasion","Use Alternate Authentication Material","Pass the Hash",4,Yes,"Application Access Token
+Pass the Hash
+Pass the Ticket
+Web Session Cookie",4
+"Defense Evasion","Valid Accounts","-",608,No,"Default Accounts
+Domain Accounts
+Local Accounts
+Cloud Accounts",
+"Defense Evasion","Valid Accounts","Cloud Accounts",416,Yes,"Default Accounts
+Domain Accounts
+Local Accounts
+Cloud Accounts",416
+"Defense Evasion","Valid Accounts","Default Accounts",64,Yes,"Default Accounts
+Domain Accounts
+Local Accounts
+Cloud Accounts",64
+"Defense Evasion","Valid Accounts","Domain Accounts",32,Yes,"Default Accounts
+Domain Accounts
+Local Accounts
+Cloud Accounts",32
+"Defense Evasion","Valid Accounts","Local Accounts",16,Yes,"Default Accounts
+Domain Accounts
+Local Accounts
+Cloud Accounts",16
+Discovery,"Cloud Service Discovery","-",5,No,,
+Discovery,"Domain Trust Discovery","-",1,No,,
+Discovery,"Network Service Scanning","-",2,No,,
+Discovery,"Remote System Discovery","-",1,No,,
+Discovery,"System Information Discovery","-",4,No,,
+Discovery,"System Network Configuration Discovery","-",1,No,,
+Execution,"Command and Scripting Interpreter","-",6,No,"PowerShell
+AppleScript
+Windows Command Shell
+Unix Shell
+Visual Basic
+Python
+JavaScript/JScript",
+Execution,"Command and Scripting Interpreter",PowerShell,8,Yes,"PowerShell
+AppleScript
+Windows Command Shell
+Unix Shell
+Visual Basic
+Python
+JavaScript/JScript",8
+Execution,"Command and Scripting Interpreter","Windows Command Shell",4,Yes,"PowerShell
+AppleScript
+Windows Command Shell
+Unix Shell
+Visual Basic
+Python
+JavaScript/JScript",4
+Execution,"Exploitation for Client Execution","-",3,No,,
+Execution,"Scheduled Task/Job","Scheduled Task",45,Yes,"At (Linux)
+At (Windows)
+Cron
+Launchd
+Scheduled Task",45
+Execution,"Software Deployment Tools","-",4,No,,
+Execution,"System Services","Service Execution",1,Yes,"Launchctl
+Service Execution",1
+Execution,"User Execution","-",5,No,"Malicious Link
+Malicious File",
+Execution,"User Execution","Malicious File",3,Yes,"Malicious Link
+Malicious File",3
+Execution,"Windows Management Instrumentation","-",6,No,,
+Exfiltration,"Exfiltration Over Alternative Protocol","-",2,No,"Exfiltration Over Symmetric Encrypted Non-C2 Protocol
+Exfiltration Over Asymmetric Encrypted Non-C2 Protocol
+Exfiltration Over Unencrypted/Obfuscated Non-C2 Protocol",
+Exfiltration,"Exfiltration Over Alternative Protocol","Exfiltration Over Unencrypted/Obfuscated Non-C2 Protocol",5,Yes,"Exfiltration Over Symmetric Encrypted Non-C2 Protocol
+Exfiltration Over Asymmetric Encrypted Non-C2 Protocol
+Exfiltration Over Unencrypted/Obfuscated Non-C2 Protocol",5
+Exfiltration,"Exfiltration Over C2 Channel","-",1,No,,
+Exfiltration,"Exfiltration Over Other Network Medium","-",3,No,"Exfiltration Over Bluetooth",
+Exfiltration,"Exfiltration Over Physical Medium","-",5,No,"Exfiltration over USB",
+Exfiltration,"Exfiltration Over Physical Medium","Exfiltration over USB",1,Yes,"Exfiltration over USB",1
+Impact,"Data Destruction","-",4,No,,
+Impact,"Data Encrypted for Impact","-",6,No,,
+Impact,"Endpoint Denial of Service","-",1,No,"OS Exhaustion Flood
+Service Exhaustion Flood
+Application Exhaustion Flood
+Application or System Exploitation",
+Impact,"Inhibit System Recovery","-",4,No,,
+Impact,"Network Denial of Service","Reflection Amplification",1,Yes,"Direct Network Flood
+Reflection Amplification",1
+Impact,"Resource Hijacking","-",3,No,,
+Impact,"Service Stop","-",1,No,,
+"Initial Access","Drive-by Compromise","-",2,No,,
+"Initial Access","Exploit Public-Facing Application","-",5,No,,
+"Initial Access","Hardware Additions","-",1,No,,
+"Initial Access",Phishing,"-",1,No,"Spearphishing Attachment
+Spearphishing Link
+Spearphishing via Service",
+"Initial Access",Phishing,"Spearphishing Attachment",2,Yes,"Spearphishing Attachment
+Spearphishing Link
+Spearphishing via Service",2
+"Initial Access",Phishing,"Spearphishing Link",1,Yes,"Spearphishing Attachment
+Spearphishing Link
+Spearphishing via Service",1
+"Initial Access",Phishing,"Spearphishing via Service",1,Yes,"Spearphishing Attachment
+Spearphishing Link
+Spearphishing via Service",1
+"Initial Access","Valid Accounts","-",608,No,"Default Accounts
+Domain Accounts
+Local Accounts
+Cloud Accounts",
+"Initial Access","Valid Accounts","Cloud Accounts",416,Yes,"Default Accounts
+Domain Accounts
+Local Accounts
+Cloud Accounts",416
+"Initial Access","Valid Accounts","Default Accounts",64,Yes,"Default Accounts
+Domain Accounts
+Local Accounts
+Cloud Accounts",64
+"Initial Access","Valid Accounts","Domain Accounts",32,Yes,"Default Accounts
+Domain Accounts
+Local Accounts
+Cloud Accounts",32
+"Initial Access","Valid Accounts","Local Accounts",16,Yes,"Default Accounts
+Domain Accounts
+Local Accounts
+Cloud Accounts",16
+"Lateral Movement","Exploitation of Remote Services","-",1,No,,
+"Lateral Movement","Remote Services","-",3,No,"Remote Desktop Protocol
+SMB/Windows Admin Shares
+Distributed Component Object Model
+SSH
+VNC
+Windows Remote Management",
+"Lateral Movement","Remote Services","Remote Desktop Protocol",3,Yes,"Remote Desktop Protocol
+SMB/Windows Admin Shares
+Distributed Component Object Model
+SSH
+VNC
+Windows Remote Management",3
+"Lateral Movement","Remote Services","SMB/Windows Admin Shares",3,Yes,"Remote Desktop Protocol
+SMB/Windows Admin Shares
+Distributed Component Object Model
+SSH
+VNC
+Windows Remote Management",3
+"Lateral Movement","Software Deployment Tools","-",4,No,,
+"Lateral Movement","Use Alternate Authentication Material","-",4,No,"Application Access Token
+Pass the Hash
+Pass the Ticket
+Web Session Cookie",
+"Lateral Movement","Use Alternate Authentication Material","Pass the Hash",4,Yes,"Application Access Token
+Pass the Hash
+Pass the Ticket
+Web Session Cookie",4
+Persistence,"Boot or Logon Autostart Execution","Port Monitors",4,Yes,"Registry Run Keys / Startup Folder
+Authentication Package
+Time Providers
+Winlogon Helper DLL
+Security Support Provider
+Kernel Modules and Extensions
+Re-opened Applications
+LSASS Driver
+Shortcut Modification
+Port Monitors
+Plist Modification",4
+Persistence,"Boot or Logon Autostart Execution","Registry Run Keys / Startup Folder",8,Yes,"Registry Run Keys / Startup Folder
+Authentication Package
+Time Providers
+Winlogon Helper DLL
+Security Support Provider
+Kernel Modules and Extensions
+Re-opened Applications
+LSASS Driver
+Shortcut Modification
+Port Monitors
+Plist Modification",8
+Persistence,"Create Account","-",2,No,"Local Account
+Domain Account
+Cloud Account",
+Persistence,"Create Account","Cloud Account",6,Yes,"Local Account
+Domain Account
+Cloud Account",6
+Persistence,"Create Account","Local Account",3,Yes,"Local Account
+Domain Account
+Cloud Account",3
+Persistence,"Create or Modify System Process","-",4,No,"Launch Agent
+Systemd Service
+Windows Service
+Launch Daemon",
+Persistence,"Create or Modify System Process","Launch Agent",8,Yes,"Launch Agent
+Systemd Service
+Windows Service
+Launch Daemon",8
+Persistence,"Create or Modify System Process","Windows Service",4,Yes,"Launch Agent
+Systemd Service
+Windows Service
+Launch Daemon",4
+Persistence,"Event Triggered Execution","Accessibility Features",4,Yes,"Change Default File Association
+Screensaver
+Windows Management Instrumentation Event Subscription
+.bash_profile and .bashrc
+Trap
+LC_LOAD_DYLIB Addition
+Netsh Helper DLL
+Accessibility Features
+AppCert DLLs
+AppInit DLLs
+Application Shimming
+Image File Execution Options Injection
+PowerShell Profile
+Emond
+Component Object Model Hijacking",4
+Persistence,"Event Triggered Execution","Application Shimming",12,Yes,"Change Default File Association
+Screensaver
+Windows Management Instrumentation Event Subscription
+.bash_profile and .bashrc
+Trap
+LC_LOAD_DYLIB Addition
+Netsh Helper DLL
+Accessibility Features
+AppCert DLLs
+AppInit DLLs
+Application Shimming
+Image File Execution Options Injection
+PowerShell Profile
+Emond
+Component Object Model Hijacking",12
+Persistence,"Event Triggered Execution","Change Default File Association",4,Yes,"Change Default File Association
+Screensaver
+Windows Management Instrumentation Event Subscription
+.bash_profile and .bashrc
+Trap
+LC_LOAD_DYLIB Addition
+Netsh Helper DLL
+Accessibility Features
+AppCert DLLs
+AppInit DLLs
+Application Shimming
+Image File Execution Options Injection
+PowerShell Profile
+Emond
+Component Object Model Hijacking",4
+Persistence,"Event Triggered Execution","Image File Execution Options Injection",4,Yes,"Change Default File Association
+Screensaver
+Windows Management Instrumentation Event Subscription
+.bash_profile and .bashrc
+Trap
+LC_LOAD_DYLIB Addition
+Netsh Helper DLL
+Accessibility Features
+AppCert DLLs
+AppInit DLLs
+Application Shimming
+Image File Execution Options Injection
+PowerShell Profile
+Emond
+Component Object Model Hijacking",4
+Persistence,"Event Triggered Execution","Windows Management Instrumentation Event Subscription",4,Yes,"Change Default File Association
+Screensaver
+Windows Management Instrumentation Event Subscription
+.bash_profile and .bashrc
+Trap
+LC_LOAD_DYLIB Addition
+Netsh Helper DLL
+Accessibility Features
+AppCert DLLs
+AppInit DLLs
+Application Shimming
+Image File Execution Options Injection
+PowerShell Profile
+Emond
+Component Object Model Hijacking",4
+Persistence,"Hijack Execution Flow","Path Interception by Unquoted Path",9,Yes,"DLL Search Order Hijacking
+DLL Side-Loading
+Dylib Hijacking
+Executable Installer File Permissions Weakness
+LD_PRELOAD
+Path Interception by PATH Environment Variable
+Path Interception by Search Order Hijacking
+Path Interception by Unquoted Path
+Services File Permissions Weakness
+Services Registry Permissions Weakness
+COR_PROFILER",9
+Persistence,"Hijack Execution Flow","Services Registry Permissions Weakness",9,Yes,"DLL Search Order Hijacking
+DLL Side-Loading
+Dylib Hijacking
+Executable Installer File Permissions Weakness
+LD_PRELOAD
+Path Interception by PATH Environment Variable
+Path Interception by Search Order Hijacking
+Path Interception by Unquoted Path
+Services File Permissions Weakness
+Services Registry Permissions Weakness
+COR_PROFILER",9
+Persistence,"Implant Container Image","-",2,No,,
+Persistence,"Scheduled Task/Job","Scheduled Task",45,Yes,"At (Linux)
+At (Windows)
+Cron
+Launchd
+Scheduled Task",45
+Persistence,"Server Software Component","Web Shell",3,Yes,"SQL Stored Procedures
+Transport Agent
+Web Shell",3
+Persistence,"Valid Accounts","-",608,No,"Default Accounts
+Domain Accounts
+Local Accounts
+Cloud Accounts",
+Persistence,"Valid Accounts","Cloud Accounts",416,Yes,"Default Accounts
+Domain Accounts
+Local Accounts
+Cloud Accounts",416
+Persistence,"Valid Accounts","Default Accounts",64,Yes,"Default Accounts
+Domain Accounts
+Local Accounts
+Cloud Accounts",64
+Persistence,"Valid Accounts","Domain Accounts",32,Yes,"Default Accounts
+Domain Accounts
+Local Accounts
+Cloud Accounts",32
+Persistence,"Valid Accounts","Local Accounts",16,Yes,"Default Accounts
+Domain Accounts
+Local Accounts
+Cloud Accounts",16
+"Privilege Escalation","Abuse Elevation Control Mechanism","Bypass User Access Control",8,Yes,"Setuid and Setgid
+Bypass User Access Control
+Sudo and Sudo Caching
+Elevated Execution with Prompt",8
+"Privilege Escalation","Boot or Logon Autostart Execution","Port Monitors",4,Yes,"Registry Run Keys / Startup Folder
+Authentication Package
+Time Providers
+Winlogon Helper DLL
+Security Support Provider
+Kernel Modules and Extensions
+Re-opened Applications
+LSASS Driver
+Shortcut Modification
+Port Monitors
+Plist Modification",4
+"Privilege Escalation","Boot or Logon Autostart Execution","Registry Run Keys / Startup Folder",8,Yes,"Registry Run Keys / Startup Folder
+Authentication Package
+Time Providers
+Winlogon Helper DLL
+Security Support Provider
+Kernel Modules and Extensions
+Re-opened Applications
+LSASS Driver
+Shortcut Modification
+Port Monitors
+Plist Modification",8
+"Privilege Escalation","Create or Modify System Process","-",4,No,"Launch Agent
+Systemd Service
+Windows Service
+Launch Daemon",
+"Privilege Escalation","Create or Modify System Process","Launch Agent",8,Yes,"Launch Agent
+Systemd Service
+Windows Service
+Launch Daemon",8
+"Privilege Escalation","Create or Modify System Process","Windows Service",4,Yes,"Launch Agent
+Systemd Service
+Windows Service
+Launch Daemon",4
+"Privilege Escalation","Event Triggered Execution","Accessibility Features",4,Yes,"Change Default File Association
+Screensaver
+Windows Management Instrumentation Event Subscription
+.bash_profile and .bashrc
+Trap
+LC_LOAD_DYLIB Addition
+Netsh Helper DLL
+Accessibility Features
+AppCert DLLs
+AppInit DLLs
+Application Shimming
+Image File Execution Options Injection
+PowerShell Profile
+Emond
+Component Object Model Hijacking",4
+"Privilege Escalation","Event Triggered Execution","Application Shimming",12,Yes,"Change Default File Association
+Screensaver
+Windows Management Instrumentation Event Subscription
+.bash_profile and .bashrc
+Trap
+LC_LOAD_DYLIB Addition
+Netsh Helper DLL
+Accessibility Features
+AppCert DLLs
+AppInit DLLs
+Application Shimming
+Image File Execution Options Injection
+PowerShell Profile
+Emond
+Component Object Model Hijacking",12
+"Privilege Escalation","Event Triggered Execution","Change Default File Association",4,Yes,"Change Default File Association
+Screensaver
+Windows Management Instrumentation Event Subscription
+.bash_profile and .bashrc
+Trap
+LC_LOAD_DYLIB Addition
+Netsh Helper DLL
+Accessibility Features
+AppCert DLLs
+AppInit DLLs
+Application Shimming
+Image File Execution Options Injection
+PowerShell Profile
+Emond
+Component Object Model Hijacking",4
+"Privilege Escalation","Event Triggered Execution","Image File Execution Options Injection",4,Yes,"Change Default File Association
+Screensaver
+Windows Management Instrumentation Event Subscription
+.bash_profile and .bashrc
+Trap
+LC_LOAD_DYLIB Addition
+Netsh Helper DLL
+Accessibility Features
+AppCert DLLs
+AppInit DLLs
+Application Shimming
+Image File Execution Options Injection
+PowerShell Profile
+Emond
+Component Object Model Hijacking",4
+"Privilege Escalation","Event Triggered Execution","Windows Management Instrumentation Event Subscription",4,Yes,"Change Default File Association
+Screensaver
+Windows Management Instrumentation Event Subscription
+.bash_profile and .bashrc
+Trap
+LC_LOAD_DYLIB Addition
+Netsh Helper DLL
+Accessibility Features
+AppCert DLLs
+AppInit DLLs
+Application Shimming
+Image File Execution Options Injection
+PowerShell Profile
+Emond
+Component Object Model Hijacking",4
+"Privilege Escalation","Exploitation for Privilege Escalation","-",7,No,,
+"Privilege Escalation","Hijack Execution Flow","Path Interception by Unquoted Path",9,Yes,"DLL Search Order Hijacking
+DLL Side-Loading
+Dylib Hijacking
+Executable Installer File Permissions Weakness
+LD_PRELOAD
+Path Interception by PATH Environment Variable
+Path Interception by Search Order Hijacking
+Path Interception by Unquoted Path
+Services File Permissions Weakness
+Services Registry Permissions Weakness
+COR_PROFILER",9
+"Privilege Escalation","Hijack Execution Flow","Services Registry Permissions Weakness",9,Yes,"DLL Search Order Hijacking
+DLL Side-Loading
+Dylib Hijacking
+Executable Installer File Permissions Weakness
+LD_PRELOAD
+Path Interception by PATH Environment Variable
+Path Interception by Search Order Hijacking
+Path Interception by Unquoted Path
+Services File Permissions Weakness
+Services Registry Permissions Weakness
+COR_PROFILER",9
+"Privilege Escalation","Process Injection","-",16,No,"Dynamic-link Library Injection
+Portable Executable Injection
+Thread Execution Hijacking
+Asynchronous Procedure Call
+Thread Local Storage
+Ptrace System Calls
+Proc Memory
+Extra Window Memory Injection
+Process Hollowing
+Process Doppelganging
+VDSO Hijacking",
+"Privilege Escalation","Scheduled Task/Job","Scheduled Task",45,Yes,"At (Linux)
+At (Windows)
+Cron
+Launchd
+Scheduled Task",45
+"Privilege Escalation","Valid Accounts","-",608,No,"Default Accounts
+Domain Accounts
+Local Accounts
+Cloud Accounts",
+"Privilege Escalation","Valid Accounts","Cloud Accounts",416,Yes,"Default Accounts
+Domain Accounts
+Local Accounts
+Cloud Accounts",416
+"Privilege Escalation","Valid Accounts","Default Accounts",64,Yes,"Default Accounts
+Domain Accounts
+Local Accounts
+Cloud Accounts",64
+"Privilege Escalation","Valid Accounts","Domain Accounts",32,Yes,"Default Accounts
+Domain Accounts
+Local Accounts
+Cloud Accounts",32
+"Privilege Escalation","Valid Accounts","Local Accounts",16,Yes,"Default Accounts
+Domain Accounts
+Local Accounts
+Cloud Accounts",16

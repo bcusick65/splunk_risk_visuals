@@ -1,0 +1,201 @@
+
+#mitremaptable table td, #mitremaptable table th {
+    font-size: 10px;
+}
+#mitremaptable  table td {
+    line-height: 14px;
+    padding: 2px 6px;
+    cursor: pointer;
+    min-height: 28px;
+    height: 28px;
+}
+@-moz-document url-prefix() {
+    #mitremaptable  table td {
+        height: 100% !important;
+    }
+}
+#mitremaptable  table td.technique {
+    border: 1px solid #BFEAFD;
+}
+#mitremaptable  table th {
+    padding: 3px 6px;
+    text-align: center;
+}
+#mitremaptable table tr {
+    height: 100%;
+}
+#mitremaptable table td span {
+    /* min-height: 28px; */
+}
+
+#mitremaptable .tooltip {
+    max-width:140px;
+}
+
+#mitremaptable td.threat_group {
+    background-image: url('/static/app/Splunk_Security_Essentials/images/general_images/mitre_threat_group_icon.png');
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 12px 12px;
+}
+
+#mitremaptable td.selected{
+    border: 2px solid #49B849 !important;
+}
+#mitremaptable td.threat_group.has_sub_technique {
+    background-position: top 0% right 15% !important;
+}
+
+#mitremaptable table-striped.table-chrome>tbody>tr.even>td, #mitremaptable .table-striped.table-chrome>tbody>tr:nth-child(2n)>td, #mitremaptable  .table-striped.table-chrome>tbody>tr:nth-child(odd).even>td {
+    background-color: #ffffff !important;
+}
+
+.technique-container {
+    height:100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.technique-container .technique {
+    flex-grow: 1;
+}
+.subtechniques_expander {
+    width: 8px;
+    min-width: 8px;
+    padding: 2px 0 2px 0;
+    margin: 0px -6px 0px 0px;
+    background: #73D0FB;
+    cursor: pointer;
+    position: relative;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.subtechniques_expander .handle {
+    transform: rotate(-90deg);
+    color: #f2f2f2;
+}
+.subtechniques_expander + .tooltip {
+    max-width: 500px !important;
+   }
+.subtechniques_expander + .tooltip .tooltip-inner {
+ background-color: #e1e6eb;
+ border: 1px solid #73D0FB;
+ padding: 0;
+ max-width: 300px;
+}
+.subtechniques_expander + .tooltip .tooltip-arrow {
+    border-right-color: #73D0FB;
+}
+.subtechniques_expander + .tooltip.right{
+    margin-left: 0px;
+    margin-top: 3px;
+    opacity: revert;
+}
+.subtechniques_expander + .tooltip .tooltip-inner .tooltip.in  {
+    opacity: 1;
+   }
+.subtechniques_expander + .tooltip .tooltip-inner .tooltip .tooltip-inner {
+    max-width: 350px !important;
+    padding: 6px 12px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    background-color: #000;
+   }
+.subtechniques_expander + .tooltip .tooltip-arrow .tooltip.right .tooltip-arrow {
+    top: 50%;
+    left: 0;
+    margin-top: -5px;
+    border-width: 5px 5px 5px 0;
+    border-right-color: #000;
+}
+
+
+.subtechniques {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-left: -1px;
+    border-left: 6px solid #73D0FB;
+    outline: 1px solid #73D0FB;
+    outline-offset: -1px;
+    white-space: nowrap;
+    vertical-align: top;
+}
+.subtechniques .subtechnique {
+    height: 100%;
+    flex-grow: 1;
+}
+
+.subtechniques .subtechnique .technique-cell {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    line-height: 14px;
+    outline: 1px solid transparent;
+    outline-offset: -1px;
+
+    padding: 0px 6px;
+    cursor: pointer;
+    min-height: 28px;
+    height: 28px;
+    color:#006eaa;
+    font-size: 10px;
+}
+
+/* Secondary MITRE table for tracking risk objects */
+
+
+#mitremaptable2 table td, #mitremaptable2 table th {
+    font-size: 10px;
+}
+#mitremaptable2  table td {
+    line-height: 14px;
+    padding: 2px 6px;
+    cursor: pointer;
+    min-height: 28px;
+    height: 28px;
+}
+@-moz-document url-prefix() {
+    #mitremaptable2  table td {
+        height: 100% !important;
+    }
+}
+#mitremaptable2  table td.technique {
+    border: 1px solid #BFEAFD;
+}
+#mitremaptable2  table th {
+    padding: 3px 6px;
+    text-align: center;
+}
+#mitremaptable2 table tr {
+    height: 100%;
+}
+#mitremaptable2 table td span {
+    /* min-height: 28px; */
+}
+
+#mitremaptable2 .tooltip {
+    max-width:140px;
+}
+
+#mitremaptable2 td.threat_group {
+    background-image: url('/static/app/Splunk_Security_Essentials/images/general_images/mitre_threat_group_icon.png');
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 12px 12px;
+}
+
+#mitremaptable2 td.selected{
+    border: 2px solid #49B849 !important;
+}
+#mitremaptable2 td.threat_group.has_sub_technique {
+    background-position: top 0% right 15% !important;
+}
+
+#mitremaptable2 table-striped.table-chrome>tbody>tr.even>td, #mitremaptable2 .table-striped.table-chrome>tbody>tr:nth-child(2n)>td, #mitremaptable2  .table-striped.table-chrome>tbody>tr:nth-child(odd).even>td {
+    background-color: #ffffff !important;
+}
