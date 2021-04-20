@@ -6,6 +6,7 @@ name,"mitre_id",enabled
 "AWS Createloginprofile","T1136.003",No
 "AWS Detect Users Creating Keys With Encrypt Policy Without MFA",T1486,No
 "AWS Detect Users With Kms Keys Performing Encryption S3",T1486,No
+"AWS Excessive Security Scanning",T1526,No
 "AWS Network Access Control List Created With All Open Ports","T1562.007",No
 "AWS Network Access Control List Deleted","T1562.007",No
 "AWS Saml Access By Provider User And Principal",T1078,No
@@ -86,6 +87,9 @@ T1059.003",No
 "Attempted Credential Dump From Registry Via Reg Exe","T1003.002",No
 "Batch File Write To System32","T1204.002",No
 "Bcdedit Failure Recovery Modification",T1490,No
+"Bits Job Persistence",T1197,No
+"Bitsadmin Download File","T1197
+T1105",No
 "Certutil Download With Urlcache And Split Arguments",T1105,No
 "Certutil Download With Verifyctl And Split Arguments",T1105,No
 "Certutil With Decode Argument",T1140,No
@@ -133,7 +137,20 @@ T1569.002",No
 "Detect Regsvr32 Application Control Bypass","T1218.010",No
 "Detect Rundll32 Inline Hta Execution","T1218.005",No
 "Detect Use Of Cmd Exe To Launch Script Interpreters","T1059.003",No
+"Disable Registry Tool","T1562.001",No
+"Disable Show Hidden Files","T1564.001
+T1562.001",No
+"Disable Windows Behavior Monitoring","T1562.001",No
+"Disable Windows Smartscreen Protection","T1562.001",No
+"Disabling Cmd Application","T1562.001",No
+"Disabling Controlpanel","T1562.001",No
+"Disabling Firewall With Netsh","T1562.001",No
+"Disabling Folderoptions Windows Feature","T1562.001",No
+"Disabling Norun Windows App","T1562.001",No
 "Disabling Remote User Account Control","T1548.002",No
+"Disabling Systemrestore In Registry","T1562.001",No
+"Disabling Task Manager","T1562.001",No
+"Dsquery Domain Discovery",T1482,No
 "Dump LSASS Via Comsvcs DLL","T1003.001",No
 "Dump LSASS Via Procdump","T1003.001",No
 "Dump LSASS Via Procdump Rename","T1003.001",No
@@ -146,6 +163,7 @@ T1548.002",No
 "High File Deletion Frequency",T1485,No
 "High Process Termination Frequency",T1486,No
 "Kerberoasting Spn Request With RC4 Encryption","T1558.003",No
+"Malicious Powershell Executed As A Service","T1569.002",No
 "Malicious Powershell Process With Obfuscation Techniques","T1059.001",No
 "Monitor Registry Keys For Print Monitors","T1547.010",No
 "Nishang Powershelltcponeline","T1059.001",No
@@ -816,6 +834,7 @@ T1089",No
 "Malicious Powershell Process - Connect To Internet With Hidden Window","T1059.001",No
 "Malicious Powershell Process - Encoded Command",T1027,No
 "Malicious Powershell Process - Execution Policy Bypass","T1059.001",No
+"Powershell Start-Bitstransfer",T1197,No
 "WMI Permanent Event Subscription - Sysmon","T1546.003",No
 "Detect Baron Samedit Cve-2021-3156",T1068,No
 "Detect Baron Samedit Cve-2021-3156 Segfault",T1068,No

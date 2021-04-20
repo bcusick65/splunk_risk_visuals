@@ -46,7 +46,8 @@ Password Spraying
 Credential Stuffing",1
 "Credential Access","Modify Authentication Process","-",8,No,"Domain Controller Authentication
 Password Filter DLL
-Pluggable Authentication Modules",
+Pluggable Authentication Modules
+Network Device Authentication",
 "Credential Access","OS Credential Dumping","-",2,No,"LSASS Memory
 Security Account Manager
 NTDS
@@ -81,11 +82,13 @@ Proc Filesystem
 /etc/passwd and /etc/shadow",2
 "Credential Access","Steal or Forge Kerberos Tickets",Kerberoasting,1,Yes,"Golden Ticket
 Silver Ticket
-Kerberoasting",1
-"Defense Evasion","Abuse Elevation Control Mechanism","Bypass User Access Control",8,Yes,"Setuid and Setgid
-Bypass User Access Control
+Kerberoasting
+AS-REP Roasting",1
+"Defense Evasion","Abuse Elevation Control Mechanism","Bypass User Account Control",8,Yes,"Setuid and Setgid
+Bypass User Account Control
 Sudo and Sudo Caching
 Elevated Execution with Prompt",8
+"Defense Evasion","BITS Jobs","-",8,No,,
 "Defense Evasion","Deobfuscate/Decode Files or Information","-",1,No,,
 "Defense Evasion","File and Directory Permissions Modification","Windows File and Directory Permissions Modification",1,Yes,"Windows File and Directory Permissions Modification
 Linux and Mac File and Directory Permissions Modification",1
@@ -94,7 +97,8 @@ Hidden Users
 Hidden Window
 NTFS File Attributes
 Hidden File System
-Run Virtual Instance",1
+Run Virtual Instance
+VBA Stomping",1
 "Defense Evasion","Hijack Execution Flow","Path Interception by Unquoted Path",9,Yes,"DLL Search Order Hijacking
 DLL Side-Loading
 Dylib Hijacking
@@ -119,22 +123,25 @@ Services Registry Permissions Weakness
 COR_PROFILER",9
 "Defense Evasion","Impair Defenses","Disable or Modify Cloud Firewall",4,Yes,"Disable or Modify Tools
 Disable Windows Event Logging
-HISTCONTROL
+Impair Command History Logging
 Disable or Modify System Firewall
 Indicator Blocking
-Disable or Modify Cloud Firewall",4
+Disable or Modify Cloud Firewall
+Disable Cloud Logs",4
 "Defense Evasion","Impair Defenses","Disable or Modify System Firewall",2,Yes,"Disable or Modify Tools
 Disable Windows Event Logging
-HISTCONTROL
+Impair Command History Logging
 Disable or Modify System Firewall
 Indicator Blocking
-Disable or Modify Cloud Firewall",2
-"Defense Evasion","Impair Defenses","Disable or Modify Tools",3,Yes,"Disable or Modify Tools
+Disable or Modify Cloud Firewall
+Disable Cloud Logs",2
+"Defense Evasion","Impair Defenses","Disable or Modify Tools",13,Yes,"Disable or Modify Tools
 Disable Windows Event Logging
-HISTCONTROL
+Impair Command History Logging
 Disable or Modify System Firewall
 Indicator Blocking
-Disable or Modify Cloud Firewall",3
+Disable or Modify Cloud Firewall
+Disable Cloud Logs",13
 "Defense Evasion","Indicator Removal on Host","-",2,No,"Clear Windows Event Logs
 Clear Linux or Mac System Logs
 Clear Command History
@@ -167,13 +174,19 @@ Match Legitimate Name or Location
 Space after Filename",3
 "Defense Evasion","Modify Authentication Process","-",8,No,"Domain Controller Authentication
 Password Filter DLL
-Pluggable Authentication Modules",
+Pluggable Authentication Modules
+Network Device Authentication",
 "Defense Evasion","Modify Registry","-",1,No,,
 "Defense Evasion","Obfuscated Files or Information","-",2,No,"Binary Padding
 Software Packing
 Steganography
 Compile After Delivery
 Indicator Removal from Tools",
+"Defense Evasion","Pre-OS Boot","TFTP Boot",4,Yes,"System Firmware
+Component Firmware
+Bootkit
+ROMMONkit
+TFTP Boot",4
 "Defense Evasion","Process Injection","-",16,No,"Dynamic-link Library Injection
 Portable Executable Injection
 Thread Execution Hijacking
@@ -194,7 +207,8 @@ Msiexec
 Odbcconf
 Regsvcs/Regasm
 Regsvr32
-Rundll32",4
+Rundll32
+Verclsid",4
 "Defense Evasion","Signed Binary Proxy Execution",Mshta,6,Yes,"Compiled HTML File
 Control Panel
 CMSTP
@@ -204,7 +218,8 @@ Msiexec
 Odbcconf
 Regsvcs/Regasm
 Regsvr32
-Rundll32",6
+Rundll32
+Verclsid",6
 "Defense Evasion","Signed Binary Proxy Execution","Regsvcs/Regasm",6,Yes,"Compiled HTML File
 Control Panel
 CMSTP
@@ -214,7 +229,8 @@ Msiexec
 Odbcconf
 Regsvcs/Regasm
 Regsvr32
-Rundll32",6
+Rundll32
+Verclsid",6
 "Defense Evasion","Signed Binary Proxy Execution",Regsvr32,2,Yes,"Compiled HTML File
 Control Panel
 CMSTP
@@ -224,7 +240,8 @@ Msiexec
 Odbcconf
 Regsvcs/Regasm
 Regsvr32
-Rundll32",2
+Rundll32
+Verclsid",2
 "Defense Evasion","Signed Binary Proxy Execution",Rundll32,7,Yes,"Compiled HTML File
 Control Panel
 CMSTP
@@ -234,7 +251,8 @@ Msiexec
 Odbcconf
 Regsvcs/Regasm
 Regsvr32
-Rundll32",7
+Rundll32
+Verclsid",7
 "Defense Evasion","Subvert Trust Controls","Install Root Certificate",1,Yes,"Gatekeeper Bypass
 Code Signing
 SIP and Trust Provider Hijacking
@@ -270,8 +288,8 @@ Cloud Accounts",32
 Domain Accounts
 Local Accounts
 Cloud Accounts",16
-Discovery,"Cloud Service Discovery","-",5,No,,
-Discovery,"Domain Trust Discovery","-",1,No,,
+Discovery,"Cloud Service Discovery","-",6,No,,
+Discovery,"Domain Trust Discovery","-",2,No,,
 Discovery,"Network Service Scanning","-",2,No,,
 Discovery,"Remote System Discovery","-",1,No,,
 Discovery,"System Information Discovery","-",4,No,,
@@ -282,30 +300,34 @@ Windows Command Shell
 Unix Shell
 Visual Basic
 Python
-JavaScript/JScript",
+JavaScript/JScript
+Network Device CLI",
 Execution,"Command and Scripting Interpreter",PowerShell,8,Yes,"PowerShell
 AppleScript
 Windows Command Shell
 Unix Shell
 Visual Basic
 Python
-JavaScript/JScript",8
+JavaScript/JScript
+Network Device CLI",8
 Execution,"Command and Scripting Interpreter","Windows Command Shell",4,Yes,"PowerShell
 AppleScript
 Windows Command Shell
 Unix Shell
 Visual Basic
 Python
-JavaScript/JScript",4
+JavaScript/JScript
+Network Device CLI",4
 Execution,"Exploitation for Client Execution","-",3,No,,
 Execution,"Scheduled Task/Job","Scheduled Task",45,Yes,"At (Linux)
 At (Windows)
 Cron
 Launchd
-Scheduled Task",45
+Scheduled Task
+Systemd Timers",45
 Execution,"Software Deployment Tools","-",4,No,,
-Execution,"System Services","Service Execution",1,Yes,"Launchctl
-Service Execution",1
+Execution,"System Services","Service Execution",2,Yes,"Launchctl
+Service Execution",2
 Execution,"User Execution","-",5,No,"Malicious Link
 Malicious File",
 Execution,"User Execution","Malicious File",3,Yes,"Malicious Link
@@ -395,6 +417,7 @@ Web Session Cookie",
 Pass the Hash
 Pass the Ticket
 Web Session Cookie",4
+Persistence,"BITS Jobs","-",8,No,,
 Persistence,"Boot or Logon Autostart Execution","Port Monitors",4,Yes,"Registry Run Keys / Startup Folder
 Authentication Package
 Time Providers
@@ -405,7 +428,8 @@ Re-opened Applications
 LSASS Driver
 Shortcut Modification
 Port Monitors
-Plist Modification",4
+Plist Modification
+Print Processors",4
 Persistence,"Boot or Logon Autostart Execution","Registry Run Keys / Startup Folder",8,Yes,"Registry Run Keys / Startup Folder
 Authentication Package
 Time Providers
@@ -416,7 +440,8 @@ Re-opened Applications
 LSASS Driver
 Shortcut Modification
 Port Monitors
-Plist Modification",8
+Plist Modification
+Print Processors",8
 Persistence,"Create Account","-",2,No,"Local Account
 Domain Account
 Cloud Account",
@@ -536,11 +561,17 @@ Services File Permissions Weakness
 Services Registry Permissions Weakness
 COR_PROFILER",9
 Persistence,"Implant Container Image","-",2,No,,
+Persistence,"Pre-OS Boot","TFTP Boot",4,Yes,"System Firmware
+Component Firmware
+Bootkit
+ROMMONkit
+TFTP Boot",4
 Persistence,"Scheduled Task/Job","Scheduled Task",45,Yes,"At (Linux)
 At (Windows)
 Cron
 Launchd
-Scheduled Task",45
+Scheduled Task
+Systemd Timers",45
 Persistence,"Server Software Component","Web Shell",3,Yes,"SQL Stored Procedures
 Transport Agent
 Web Shell",3
@@ -564,8 +595,8 @@ Persistence,"Valid Accounts","Local Accounts",16,Yes,"Default Accounts
 Domain Accounts
 Local Accounts
 Cloud Accounts",16
-"Privilege Escalation","Abuse Elevation Control Mechanism","Bypass User Access Control",8,Yes,"Setuid and Setgid
-Bypass User Access Control
+"Privilege Escalation","Abuse Elevation Control Mechanism","Bypass User Account Control",8,Yes,"Setuid and Setgid
+Bypass User Account Control
 Sudo and Sudo Caching
 Elevated Execution with Prompt",8
 "Privilege Escalation","Boot or Logon Autostart Execution","Port Monitors",4,Yes,"Registry Run Keys / Startup Folder
@@ -578,7 +609,8 @@ Re-opened Applications
 LSASS Driver
 Shortcut Modification
 Port Monitors
-Plist Modification",4
+Plist Modification
+Print Processors",4
 "Privilege Escalation","Boot or Logon Autostart Execution","Registry Run Keys / Startup Folder",8,Yes,"Registry Run Keys / Startup Folder
 Authentication Package
 Time Providers
@@ -589,7 +621,8 @@ Re-opened Applications
 LSASS Driver
 Shortcut Modification
 Port Monitors
-Plist Modification",8
+Plist Modification
+Print Processors",8
 "Privilege Escalation","Create or Modify System Process","-",4,No,"Launch Agent
 Systemd Service
 Windows Service
@@ -715,7 +748,8 @@ VDSO Hijacking",
 At (Windows)
 Cron
 Launchd
-Scheduled Task",45
+Scheduled Task
+Systemd Timers",45
 "Privilege Escalation","Valid Accounts","-",608,No,"Default Accounts
 Domain Accounts
 Local Accounts
@@ -736,3 +770,7 @@ Cloud Accounts",32
 Domain Accounts
 Local Accounts
 Cloud Accounts",16
+Reconnaissance,"Gather Victim Org Information","Determine Physical Locations",4,Yes,"Determine Physical Locations
+Business Relationships
+Identify Business Tempo
+Identify Roles",4

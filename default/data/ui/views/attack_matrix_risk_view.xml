@@ -122,8 +122,10 @@
 | stats dc(Technique) as techniques_covered by Tactic
 | rename Tactic as mitre_tactic
 | append
-    [| inputlookup temp_tactic_technique_count.csv ]
-| replace collection with Collection, command-and-control with "Command and Control", credential-access with "Credential Access", defense-evasion with "Defense Evasion", discovery with Discovery, execution with Execution, exfiltration with Exfiltration, impact with Impact, initial-access with "Initial Access", lateral-movement with "Lateral Movement", persistence with Persistence, privilege-escalation with "Privilege Escalation" in mitre_tactic
+    [| inputlookup attack_matrix 
+    | stats dc(*) as * 
+    | transpose 
+    | rename column as mitre_tactic, "row 1" as total_techniques ]
 | stats values(techniques_covered) as techniques_covered, values(total_techniques) as total_techniques by mitre_tactic
 | fillnull value="0" techniques_covered
 | eval combo = techniques_covered." of ".total_techniques
@@ -307,26 +309,39 @@
     | eval Technique_nogroups=coalesce(technique_temp,'&lt;&lt;FIELD&gt;&gt;') 
     | eval "&lt;&lt;FIELD&gt;&gt; Tactic" = "&lt;&lt;FIELD&gt;&gt;" 
     | eval "Sub_Technique"="-"
-    | lookup risk_object_attack_environment_counts.csv Sub_Technique, Technique AS Technique_nogroups, "Tactic" AS "&lt;&lt;FIELD&gt;&gt; Tactic" OUTPUT risk_object 
+    | lookup risk_object_attack_environment_counts.csv Sub_Technique Technique AS Technique_nogroups, "Tactic" AS "&lt;&lt;FIELD&gt;&gt; Tactic" OUTPUT risk_object 
     | eval "Technique"=mvindex(split('&lt;&lt;FIELD&gt;&gt;', " ("),0) 
     
     | lookup mitre_matrix_list Tactic AS "&lt;&lt;FIELD&gt;&gt; Tactic" Technique OUTPUT TechniqueId AS "&lt;&lt;FIELD&gt;&gt;"_TechniqueId
     
+    | eval c="======Attach the risk objects attached to techniques====="
     | eval risk_object=split('risk_object',",") 
     | eval "risk_object"=mvfilter(match('risk_object',"$risk_object_tok$")) 
     | rex field="risk_object" "(?&lt;risk_object&gt;[^:]*)::(?&lt;risk_object_count&gt;.*)"
+    | eval c="=======END======="
 
     | eval Selected=if(in('risk_object',"$risk_object_tok$") , risk_object_count,0) 
     | eval Selected=tonumber(coalesce(mvindex(Selected,0,0),0))+tonumber(coalesce(mvindex(Selected,1,1),0))+tonumber(coalesce(mvindex(Selected,2,2),0))+tonumber(coalesce(mvindex(Selected,3,3),0))+tonumber(coalesce(mvindex(Selected,4,4),0))+tonumber(coalesce(mvindex(Selected,5,5),0))+tonumber(coalesce(mvindex(Selected,6,6),0)) 
+    | eval risk_object=null(), risk_object_count=null()
     | fields - Technique_nogroups technique_temp 
     | eval count = coalesce(count, 1), temp = "t" + count, {temp}='&lt;&lt;FIELD&gt;&gt;', color="#9A32CD", colorby="Selected" 
     | eval text='&lt;&lt;FIELD&gt;&gt;' 
-    | eval p0_count=coalesce(risk_object_count,0) 
+    | eval p0_count=coalesce(Selected,0) 
     | eval total_count=p0_count
     | eval opacity=tostring(total_count/5) 
     | eval tooltip="Events: ".total_count."&lt;br /&gt;" 
+    
+    
+    | eval c="======Attach the risk objects attached to sub-techniques====="
     | eval IsSubTechnique="Yes"
-    | lookup risk_object_attack_envrionment_counts Tactic AS "&lt;&lt;FIELD&gt;&gt; Tactic" Technique IsSubTechnique OUTPUT "Sub_Technique" sub_technique_count
+    | lookup risk_object_attack_envrionment_counts Tactic AS "&lt;&lt;FIELD&gt;&gt; Tactic" Technique IsSubTechnique OUTPUT "Sub_Technique" sub_technique_count risk_object
+    | eval risk_object=split('risk_object',",") 
+    | eval "risk_object"=mvfilter(match('risk_object',"$risk_object_tok$")) 
+    | rex field="risk_object" "(?&lt;risk_object&gt;[^:]*)::(?&lt;risk_object_count&gt;.*)"
+    | eval sub_technique_count=coalesce(risk_object_count,mvmap(sub_technique_count,0))
+    | eval sub_technique_count=risk_object_count
+    | eval c="=======END======="
+    
     | lookup mitre_matrix_list Tactic AS "&lt;&lt;FIELD&gt;&gt; Tactic" Technique Sub_Technique OUTPUT Sub_TechniqueId
     | eval Opacity_SubTechnique=mvmap(sub_technique_count,sub_technique_count/5)
     | eval Color_SubTechnique=mvmap(sub_technique_count,'color')
